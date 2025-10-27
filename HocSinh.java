@@ -3,7 +3,7 @@ import model.Nguoi;
 import java.util.Scanner;
 public class HocSinh extends Nguoi{
     private String maHS;
-    private LopHoc lop;
+    private LopHoc maLop;
     private String hanhKiem;
     private String loaihocsinh;
 public HocSinh(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc lop, String hanhKiem, String loaihocsinh ){
@@ -19,11 +19,11 @@ public void setmaHS(String maHS){
 public String getmaHS(){
     return maHS;
 }
-public void setlop(LopHoc lop){
-    this.lop=lop;
+public void setmaLop(LopHoc maLop){
+    this.maLop=lop;
 }
-public LopHoc getlop(){
-    return lop;
+public LopHoc getmaLop(){
+    return maLop;
 }
 public void sethanhKiem(String hanhKiem){
     this.hanhKiem=hanhKiem;
@@ -43,18 +43,8 @@ public void nhap(){
     Scanner sc=new Scanner(System.in);
     System.out.println("nhap ma hoc sinh: ");
     setmaHS(sc.nextLine());
-    System.out.println("nhap lop cho hoc sinh: ");
-    System.out.print("Nhập mã lớp: ");
-    String maLop = sc.nextLine();
-
-    System.out.println("Nhập tên lớp: ");
-    String tenLop = sc.nextLine();
-
-    LopHoc lopHoc = new LopHoc();
-    lopHoc.setMaLop(maLop);
-    lopHoc.setTenLop(tenLop);
-
-    HocSinh.setLop(lopHoc);
+    System.out.println("nhap ma lop cho hoc sinh: ");
+    setMaLop(sc.nextLine());
     System.out.println("nhap hanh kiem cho hoc sinh: ");
     sethanhKiem(sc.nextLine());
     System.out.println("nhap loai hoc sinh: ");
@@ -63,7 +53,7 @@ public void nhap(){
 public void xuat(){
     super.xuat();
     System.out.println("ma hoc sinh vua nhap la: "+maHS);
-    System.out.println("lop cua hoc sinh vua nhap la: "+lop);
+    System.out.println("lop cua hoc sinh vua nhap la: "+maLop);
     System.out.println("hanh liem cua hoc sinh vua nhap la: "+hanhKiem);
     System.out.println("loai hoc sinh: "+loaihocsinh);
 }
@@ -71,8 +61,8 @@ public void xuat(){
 public class NoiTru extends HocSinh {
     private String khuNoiTru;
 
-    public NoiTru(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc lop, String hanhKiem,String loaihocsinh, String khuNoiTru) {
-        super(hoTen, gioiTinh, namSinh, maHS, lop, hanhKiem, loaihocsinh);
+    public NoiTru(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc maLop, String hanhKiem,String loaihocsinh, String khuNoiTru) {
+        super(hoTen, gioiTinh, namSinh, maHS, maLop, hanhKiem, loaihocsinh);
         this.khuNoiTru = khuNoiTru;
     }
 
@@ -101,8 +91,8 @@ public class NoiTru extends HocSinh {
 public class NgoaiTru extends HocSinh {
     private String diaChiNha;
 
-    public NgoaiTru(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc lop, String hanhKiem,String loaihocsinh, String diaChiNha) {
-        super(hoTen, gioiTinh, namSinh, maHS, lop, hanhKiem, loaihocsinh);
+    public NgoaiTru(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc maLop, String hanhKiem,String loaihocsinh, String diaChiNha) {
+        super(hoTen, gioiTinh, namSinh, maHS, maLop, hanhKiem, loaihocsinh);
         this.diaChiNha = diaChiNha;
     }
 
@@ -128,3 +118,4 @@ public class NgoaiTru extends HocSinh {
         System.out.println("Địa chỉ nhà: " + diaChiNha);
     }
 }
+
