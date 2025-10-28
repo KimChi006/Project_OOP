@@ -19,20 +19,6 @@ public class Lop{
         this.giaoVienCN = giaoVienCN;
     }
 
-    @Override
-    public String toString() {
-        return "Mã lớp: " + maLop +
-                ", Tên lớp: " + tenLop +
-                ", GVCN: " + giaoVienCN;
-    }
-
-    public void hienThi(){
-        System.out.println("Thông tin lớp học");
-        System.out.println("Mã lớp:"+maLop);
-        System.out.println("Tên lớp:"+tenLop);
-        System.out.println("Giáo viên chủ nhiệm:"+giaoVienCN);
-    }
-
     public void nhap(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập mã lớp:");
@@ -52,7 +38,6 @@ public class Lop{
 
 public static void main(String[] args) {
     Lop l= new Lop();
-    l.hienThi();
     l.nhap();
     l.xuat();
 }
