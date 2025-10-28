@@ -1,6 +1,6 @@
 import model.MonHoc;
 import java.util.Scanner;
-abstract class Diem{
+public class Diem{
     private HocSinh maHS;
     private MonHoc maMon;
     private double giaTri;
@@ -89,3 +89,4 @@ class DiemThi extends Diem{
         System.out.println("diem thi cua hoc sinh la: "+getgiaTri());
     }
 }
+
