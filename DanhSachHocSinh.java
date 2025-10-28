@@ -138,7 +138,7 @@ public void xoaHocSinh() {
             System.out.println("Không tìm thấy học sinh.");
         }
     }
-public void readFile(String TenFile ){
+public void doctuFile(String TenFile ){
     try {
 
 			BufferedReader input = new BufferedReader(new FileReader("HocSinh.txt"));
@@ -177,7 +177,7 @@ public void readFile(String TenFile ){
 }
 
 
-public void writeFile(String tenFile) {
+public void ghiraFile(String tenFile) {
     try {
         FileWriter fw = new FileWriter("HocSinh.txt",false);
        for (HocSinh hs : dshs) {
@@ -207,5 +207,6 @@ public static void main(String[] args) {
     dshs.hienThiDanhSach();
 }
 }
+
 
 
