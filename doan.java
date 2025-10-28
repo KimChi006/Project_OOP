@@ -196,7 +196,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
     // ===== TRIỂN KHAI interface ThaoTacFile =====
     @Override
     public void docTuFile(String duongDan) {
-        try (BufferedReader br = new BufferedReader(new FileReader(duongDan))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(GiaoVien.txt))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] t = line.split(",");
@@ -213,7 +213,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
 
     @Override
     public void ghiRaFile(String duongDan) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(duongDan))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(GiaoVien.txt))) {
             for (GiaoVien gv : danhSach) {
                 bw.write(String.join(",",
                         gv.getMaGV(), gv.getHoTen(), gv.getGioiTinh(),
