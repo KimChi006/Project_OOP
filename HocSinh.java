@@ -2,7 +2,7 @@ import model.LopHoc;
 import model.Nguoi;
 import java.util.Scanner;
 public class HocSinh extends Nguoi{
-    private static int maHSTiepTheo = 1000; 
+    private static int maHSTiepTheo=1000; 
     private String maHS;
     private LopHoc maLop;
     private String hanhKiem;
@@ -45,8 +45,6 @@ public String getloaihocsinh(){
 public void nhap(){
     super.nhap();
     Scanner sc=new Scanner(System.in);
-    System.out.println("nhap ma hoc sinh: ");
-    setmaHS(sc.nextLine());
     System.out.println("nhap ma lop cho hoc sinh: ");
     setmaLop(sc.nextLine());
     System.out.println("nhap hanh kiem cho hoc sinh: ");
@@ -122,4 +120,5 @@ public class NgoaiTru extends HocSinh {
         System.out.println("Địa chỉ nhà: " + diaChiNha);
     }
 }
+
 
