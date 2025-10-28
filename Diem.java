@@ -5,22 +5,22 @@ public class Diem{
     private MonHoc maMon;
     private double giaTri;
 public Diem(){}
-public Diem(HocSinh maHS,MonHoc monHoc, double giaTri){
+public Diem(HocSinh maHS,MonHoc maMon, double giaTri){
     this.maHS=maHS;
-    this.monHoc=monHoc;
+    this.monHoc=maMon;
     this.giaTri=giaTri;
 }
 public void setmaHS(HocSinh maHS){
     this.maHS=maHS;
 }
-public getmaHS(){
+public HocSinh getmaHS(){
     return maHS;
 }
-public void setmonHoc(MonHoc monHoc){
-    this.monHoc=monHoc;
+public void setmonHoc(MonHoc maMon){
+    this.maMon=maMon;
 }
-public MonHoc getmonHoc(){
-    return monHoc;
+public MonHoc getmaMon(){
+    return maMon;
 }
 public void setgiaTri(double giaTri){
     this.giaTri=giaTri;
@@ -41,7 +41,7 @@ class DiemMieng extends Diem{
          setgiaTri(sc.nextDouble());
     }
     public void xuat(){
-        System.out.println("diem mieng cua hocj sinh la: "+getgiaTri());
+        System.out.println("diem mieng cua hoc sinh la: "+getgiaTri());
     }
 }
 class Diem15Phut extends Diem {
@@ -89,4 +89,5 @@ class DiemThi extends Diem{
         System.out.println("diem thi cua hoc sinh la: "+getgiaTri());
     }
 }
+
 
