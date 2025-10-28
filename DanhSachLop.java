@@ -61,7 +61,7 @@ public class DanhSachLop{
         int i = 1;
         for (Lop lop : dsLop) {
             System.out.println( i + ":"+lop);
-            //lop.xuat();
+            lop.xuat();
             i++;
         }
     }
@@ -234,4 +234,5 @@ public class DanhSachLop{
         ds.menu();
     }
 }
+
 
