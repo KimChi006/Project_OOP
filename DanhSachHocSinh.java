@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.BufferedReader;
@@ -26,6 +27,8 @@ public void themHocSinh(){
             hs=new NgoaiTru();
             break;
     }
+    String maMoi = getMaHSTiepTheo();
+    hs.setMaHS(maMoi);
     hs.nhap();
     dshs.add(hs);
 }
@@ -63,38 +66,49 @@ public void suaHocSinh() {
         int luaChon;
         do {
             System.out.println("\n--- Chọn thông tin cần sửa ---");
-            System.out.println("1. Sửa họ tên");
-            System.out.println("2. Sửa năm sinh");
-            System.out.println("3. Sửa lớp");
-            System.out.println("4. Sửa hạnh kiểm");
-            System.out.println("5. Sửa loại học sinh");
-            System.out.println("6. Sửa khu nội trú/địa chỉ ");
+            System.out.println("1. Sửa mã học sinh");
+            System.out.println("2. Sửa tên học sinh");
+            System.out.println("4. Sửa giới tính học sinh");
+            System.out.println("5. Sửa năm sinh học sinh");
+            System.out.println("3. Sửa mã lớp");
+            System.out.println("6. Sửa hạnh kiểm học sinh");
+            System.out.println("7. Sửa loại học sinh");
+            System.out.println("8. Sửa khu nội trú/địa chỉ ");
             System.out.println("0. Thoát sửa");
             System.out.print("Chọn: ");
             luaChon = Integer.parseInt(sc.nextLine());
 
             switch (luaChon) {
                 case 1:
+                    System.out.print("Nhập mã học sinh mới: ");
+                    hs.setmaHS(sc.nextLine());
+                    break;
+                case 2:
                     System.out.print("Nhập họ tên mới: ");
                     hs.setHoTen(sc.nextLine());
                     break;
-                case 2:
+                
+                case 3:
+                    System.out.print("Nhập giới tính mới: ");
+                    hs.setgioiTinh(sc.nextLine());
+                    break;
+                case 4:
                     System.out.print("Nhập năm sinh mới: ");
                     hs.setnamSinh(sc.nextInt());
                     break;
-                case 3:
-                    System.out.print("Nhập lớp mới: ");
-                    hs.setLop(sc.nextLine());
+                case 5:
+                    System.out.print("Nhập mã lớp mới: ");
+                    hs.setmaLop(sc.nextLine());
                     break;
-                case 4:
+                case 6:
                     System.out.println("nhập hạnh kiếm mới: ");
                     hs.sethanhKiem(sc.nextLine());
                     break;
-                case 5: 
+                case 7: 
                     System.out.println("nhập loại học sinh mới: ");
                     hs.setloaihocsinh(sc.nextLine());
                     break;
-                case 6:
+                case 8:
                     if (hs instanceof NoiTru) {
                         System.out.print("Nhập khu nội trú mới: ");
                         ((NoiTru) hs).setKhuNoiTru(sc.nextLine());
@@ -136,18 +150,19 @@ public void readFile(String TenFile ){
             if (arr.length == 8) {
             String maHS = arr[0];
             String hoTen = arr[1];
-            int namSinh = arr[2];
-            String gioiTinh = arr[3];
-            String lop = arr[4];
+            
+            String gioiTinh = arr[2];
+            int namSinh = arr[3];
+            String maLop = arr[4];
             String hanhKiem = arr[5];
             String loaihocsinh = arr[6];
         
             HocSinh hs;
 
              if (loai.equalsIgnoreCase("nội trú")) {
-             hs = new NoiTru(maHS, hoTen, tuoi, lop, hanhKiem, loai, arr[7]);
+             hs = new NoiTru(maHS, hoTen,gioiTinh,namSinh,maLop, hanhKiem, loaihocsinh, arr[7]);
              } else {
-             hs = new NgoaiTru(maHS, hoTen, tuoi, lop, hanhKiem, loai, arr[7]);
+             hs = new NgoaiTru(maHS, hoTen, gioiTinh,namSinh,maLop, hanhKiem, loaihocsinh, arr[7]);
              }
 
              dshs.add(hs);
@@ -180,14 +195,17 @@ public void writeFile(String tenFile) {
 public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     DanhSachHocSinh dshs = new DanhSachHocSinh();
+	
     dshs.themHocSinh();
     System.out.print("Nhập mã học sinh cần tìm: ");
     String maHS = sc.nextLine();
     dshs.timHocSinh(maHS);
-
+    
     dshs.suaHocSinh();
     dshs.xoaHocSinh();
+	
     dshs.hienThiDanhSach();
 }
 }
+
 
