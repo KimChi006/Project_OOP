@@ -2,14 +2,18 @@ import model.LopHoc;
 import model.Nguoi;
 import java.util.Scanner;
 public class HocSinh extends Nguoi{
+    private static int maHSTiepTheo = 1000; 
     private String maHS;
     private LopHoc maLop;
     private String hanhKiem;
     private String loaihocsinh;
-public HocSinh(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc lop, String hanhKiem, String loaihocsinh ){
+public static String getMaHSTiepTheo() {
+        return "HS" + maHSTiepTheo++;
+    }
+public HocSinh(String hoTen, String gioiTinh, int namSinh, String maHS, LopHoc maLop, String hanhKiem, String loaihocsinh ){
     super(hoTen, gioiTinh, namSinh);
     this.maHS=maHS;
-    this.lop=lop;
+    this.maLop=maLop;
     this.hanhKiem=hanhKiem;
     this.loaihocsinh=loaihocsinh;
 }
@@ -20,7 +24,7 @@ public String getmaHS(){
     return maHS;
 }
 public void setmaLop(LopHoc maLop){
-    this.maLop=lop;
+    this.lop=lop;
 }
 public LopHoc getmaLop(){
     return maLop;
@@ -44,7 +48,7 @@ public void nhap(){
     System.out.println("nhap ma hoc sinh: ");
     setmaHS(sc.nextLine());
     System.out.println("nhap ma lop cho hoc sinh: ");
-    setMaLop(sc.nextLine());
+    setmaLop(sc.nextLine());
     System.out.println("nhap hanh kiem cho hoc sinh: ");
     sethanhKiem(sc.nextLine());
     System.out.println("nhap loai hoc sinh: ");
@@ -53,7 +57,7 @@ public void nhap(){
 public void xuat(){
     super.xuat();
     System.out.println("ma hoc sinh vua nhap la: "+maHS);
-    System.out.println("lop cua hoc sinh vua nhap la: "+maLop);
+    System.out.println("lop cua hoc sinh vua nhap la: "+lop);
     System.out.println("hanh liem cua hoc sinh vua nhap la: "+hanhKiem);
     System.out.println("loai hoc sinh: "+loaihocsinh);
 }
