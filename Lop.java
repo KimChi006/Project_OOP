@@ -35,10 +35,4 @@ public class Lop{
         System.out.println("Tên lớp:"+tenLop);
         System.out.println("Giáo viên chủ nhiệm:"+giaoVienCN);
     }
-
-public static void main(String[] args) {
-    Lop l= new Lop();
-    l.nhap();
-    l.xuat();
-}
 }
