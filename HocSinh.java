@@ -59,6 +59,10 @@ public void xuat(){
     System.out.println("hanh liem cua hoc sinh vua nhap la: "+hanhKiem);
     System.out.println("loai hoc sinh: "+loaihocsinh);
 }
+public void hienthi(){
+    System.out.println("")
+}
+
 }
 public class NoiTru extends HocSinh {
     private String khuNoiTru;
@@ -120,5 +124,6 @@ public class NgoaiTru extends HocSinh {
         System.out.println("Địa chỉ nhà: " + diaChiNha);
     }
 }
+
 
 
