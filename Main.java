@@ -4,21 +4,23 @@ public class Main{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 	
-		DanhSachHocSinh dshs = new DanhSachHocSinh();
-		DanhSachGiaoVien dsgv = new DanhSachGiaoVien();
-		DanhSachMonHoc dsmh = new DanhSachMonHoc();
-		DanhSachDiem dsd = new DanhSachDiem();
-		DanhSachLop dsl = new DanhSachLop();
+		DanhSachHocSinh dshs = new DanhSachHocSinh(sc);
+		DanhSachGiaoVien dsgv = new DanhSachGiaoVien(sc);
+		DanhSachMonHoc dsmh = new DanhSachMonHoc(sc);
+		DanhSachDiem dsd = new DanhSachDiem(sc);
+		DanhSachLop dsl = new DanhSachLop(sc);
 	
-		dshs.docTuFile("HocSinh.txt");
-		dsgv.docTuFile("GiaoVien.txt");
-		dsmh.docTuFile("MonHoc.txt");
-		dsd.docTuFile("Diem.txt");
-		dsl.docTuFile("LopHoc.txt");
+		dshs.docTuFile("Data\\HocSinh.txt");
+		dsgv.docTuFile("Data\\GiaoVien.txt");
+		dsmh.docTuFile("Data\\MonHoc.txt");
+		dsd.docTuFile("Data\\Diem.txt");
+		dsl.docTuFile("Data\\LopHoc.txt");
 	
 		int chon = -1;
 		do {
-			System.out.println("Chuong trinh quan ly hoc sinh THPT");
+			System.out.println("\n=============================");
+			System.out.println("CHUONG TRINH QUAN LY HOC SINH THPT");
+			System.out.println("=============================");
 			System.out.println("1. Quan ly hoc sinh");
 			System.out.println("2. Quan ly giao vien");
 			System.out.println("3. Quan ly diem");
@@ -64,8 +66,10 @@ public class Main{
 					break;
 				case 5:
 					dshs.hienThiDanhSach();
+					break;
 				case 6:
-					dshs.ghiRaFile("LuuHocSinh.txt");
+					dshs.ghiRaFile("Data/LuuHocSinh.txt");
+					break;
 				case 0:
 					System.out.println("Thoat quan ly hoc sinh");
 					break;
@@ -109,7 +113,8 @@ public class Main{
 						dsgv.hienThiTatCa();
 						break;
 					case 5:
-						dsgv.ghiRaFile("LuuGiaoVien.txt");
+						dsgv.ghiRaFile("Data/LuuGiaoVien.txt");
+						break;
 					case 0:
 						System.out.println("Thoat quan ly giao vien");
 						break;
@@ -142,7 +147,7 @@ public class Main{
 						dsd.hienThiTatCa();
 						break;
 					case 4:
-						dsd.ghiRaFile("LuuDiem.txt");
+						dsd.ghiRaFile("Data/LuuDiem.txt");
 						break;
 					case 0:
 						System.out.println("Thoat quan ly diem");
@@ -185,7 +190,8 @@ public class Main{
 						dsmh.hienThiTatCa();
 						break;
 					case 5:
-						dsmh.ghiRaFile("LuuMonhoc.txt");
+						dsmh.ghiRaFile("Data/LuuMonhoc.txt");
+						break;
 					case 0:
 						System.out.println("Thoat quan ly diem");
 						break;
