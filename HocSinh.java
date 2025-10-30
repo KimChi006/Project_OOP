@@ -52,15 +52,15 @@ public void nhap(){
     System.out.println("nhap loai hoc sinh: ");
     setloaihocsinh(sc.nextLine());
 }
-public void xuat(){
-    super.xuat();
-    System.out.println("ma hoc sinh vua nhap la: "+maHS);
-    System.out.println("lop cua hoc sinh vua nhap la: "+lop);
-    System.out.println("hanh liem cua hoc sinh vua nhap la: "+hanhKiem);
-    System.out.println("loai hoc sinh: "+loaihocsinh);
-}
-public void hienthi(){
-    System.out.println("")
+
+public void hienThi(){
+    System.out.println(" ma hoc sinh: "+maHS);
+    System.out.println("  ten hoc sinh "+hoTen);
+    System.out.println("gioi tinh hoc sinh"+gioiTinh);
+    System.out.println("  nam sinh hõ sinh "+namSinh);
+    System.out.println(" lop hoc sinh"+maLop);
+    System.out.println("  hanh kiem hoc sinh"+hanhKiem);
+    System.out.println("  loai hoc sinh"+loaihocsinh);
 }
 
 }
@@ -89,8 +89,8 @@ public class NoiTru extends HocSinh {
     }
 
     @Override
-    public void xuat() {
-        super.xuat();
+    public void hienThi() {
+        super.hienThi();
         System.out.println("Khu nội trú: " + khuNoiTru);
     }
 }
@@ -119,11 +119,12 @@ public class NgoaiTru extends HocSinh {
     }
 
     @Override
-    public void xuat() {
-        super.xuat();
+    public void hienThi() {
+        super.hienThi();
         System.out.println("Địa chỉ nhà: " + diaChiNha);
     }
 }
+
 
 
 
