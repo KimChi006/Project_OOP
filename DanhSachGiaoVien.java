@@ -1,13 +1,12 @@
-import model.Nguoi;
-import model.MonHoc;
-import model.IThaoTacFile;
 import java.io.*;
 import java.util.*;
-import java.util.Scanner;
 
 class DanhSachGiaoVien implements IThaoTacFile {
     private ArrayList<GiaoVien> danhSach = new ArrayList<>();
-
+    private Scanner sc;
+    public DanhSachGiaoVien(Scanner sc) {
+        this.sc = sc;
+    }
     public void themGV(GiaoVien gv) {
     	 String maMoi = GiaoVien.getMaGVTiepTheo();
     	    gv.setMaGV(maMoi);
@@ -26,7 +25,6 @@ class DanhSachGiaoVien implements IThaoTacFile {
     public void suaGV(String maGV) {
         for (GiaoVien gv : danhSach) {
             if (gv.getMaGV().equalsIgnoreCase(maGV)) {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("1. Sửa họ tên\n2. Sửa năm sinh\n3. Sửa môn dạy\n4. Sửa chức vụ");
                 System.out.print("Chọn mục muốn sửa: ");
                 int chon = sc.nextInt();
@@ -35,11 +33,11 @@ class DanhSachGiaoVien implements IThaoTacFile {
                 switch (chon) {
                     case 1:
                         System.out.print("Nhập họ tên mới: ");
-                        gv.setHoTen(sc.nextLine());
+                        gv.sethoTen(sc.nextLine());
                         break;
                     case 2:
                         System.out.print("Nhập năm sinh mới: ");
-                        gv.setNamSinh(Integer.parseInt(sc.nextLine()));
+                        gv.setnamSinh(Integer.parseInt(sc.nextLine()));
                         break;
                     case 3:
                         System.out.print("Nhập tên môn mới: ");
@@ -80,8 +78,9 @@ class DanhSachGiaoVien implements IThaoTacFile {
                     danhSach.add(gv);
                 }
             }
+            System.out.println("Doc file thanh cong GiaoVien.txt!");
         } catch (IOException e) {
-            System.out.println("Lỗi đọc file: " + e.getMessage());
+            System.out.println("Lỗi đọc file GiaoVien.txt: " + e.getMessage());
         }
     }
 
@@ -90,8 +89,8 @@ class DanhSachGiaoVien implements IThaoTacFile {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(duongDan))) {
             for (GiaoVien gv : danhSach) {
                 bw.write(String.join(",",
-                        gv.getMaGV(), gv.getHoTen(), gv.getGioiTinh(),
-                        String.valueOf(gv.getNamSinh()),
+                        gv.getMaGV(), gv.gethoTen(), gv.getgioiTinh(),
+                        String.valueOf(gv.getnamSinh()),
                         gv.getMonDay().getTenMon(), gv.getChucVu()));
                 bw.newLine();
             }
