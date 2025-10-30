@@ -1,9 +1,11 @@
-package Project_OOP;
+import java.util.Scanner;
+
 public class MonHoc {
     private String maMon;
     private String tenMon;
     private int soTiet;
     public Object getMaMon;
+    private Scanner sc;
 
     public MonHoc() {}
 
@@ -43,5 +45,13 @@ public class MonHoc {
 
     public String toFileString() {
         return maMon + "," + tenMon + "," + soTiet;
+    }
+    public void nhap(){
+        System.out.println("Nhap ma mon hoc:");
+        maMon = sc.nextLine();
+        System.out.println("Nhap ten mon hoc:");
+        tenMon = sc.nextLine();
+        System.out.println("Nhap so tiet cua mon hoc:");
+        soTiet = sc.nextInt();
     }
 }
