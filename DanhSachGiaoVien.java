@@ -1,5 +1,8 @@
 import model.Nguoi;
 import model.MonHoc;
+import model.IThaoTacFile;
+import java.io.*;
+import java.util.*;
 import java.util.Scanner;
 
 class DanhSachGiaoVien implements IThaoTacFile {
