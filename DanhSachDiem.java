@@ -3,12 +3,13 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import model.HocSinh;
-import model.MonHoc;
 
-public class DanhSachDiem implements IThaoTacFile {
+class DanhSachDiem implements IThaoTacFile {
     private ArrayList<Diem> dsd = new ArrayList<>();
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+    public DanhSachDiem(Scanner sc) {
+        this.sc = sc;
+    }
 
     public double tinhDiemTrungBinh() {
         double tong = 0;
@@ -93,13 +94,13 @@ public class DanhSachDiem implements IThaoTacFile {
     }
 
     @Override
-    public void doctuFile(String tenFile) {
+    public void docTuFile(String tenFile) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(tenFile));
             String line;
             while ((line = input.readLine()) != null) {
                 String[] arr = line.split(",");
-                if (arr.length == 6) {
+                if (arr.length == 6) {                   
                     String maHS = arr[0];
                     String maMon = arr[1];
                     double DiemMieng = Double.parseDouble(arr[2]);
@@ -108,7 +109,7 @@ public class DanhSachDiem implements IThaoTacFile {
                     double DiemThi = Double.parseDouble(arr[5]);
 
                     
-                    dsd.add(new Diem(maHS, maMon, DiemMieng, Diem15P, Diem1T, DiemThi));
+                    dsd.add(new Diem(maHS,maMon, DiemMieng, Diem15P, Diem1T, DiemThi));
                 }
             }
             input.close();
@@ -118,7 +119,7 @@ public class DanhSachDiem implements IThaoTacFile {
     }
 
     @Override
-    public void ghiraFile(String tenFile) {
+    public void ghiRaFile(String tenFile) {
         try {
             FileWriter fw = new FileWriter(tenFile, false);
             for (Diem d : dsd) {
@@ -127,20 +128,10 @@ public class DanhSachDiem implements IThaoTacFile {
                         d.getDiem1T() + "," + d.getDiemThi() + "\n");
             }
             fw.close();
-            System.out.println("Ghi file thành công!");
+            System.out.println("Ghi file thành công Diem.txt!");
         } catch (Exception e) {
+            System.out.println("Loi khi doc file Diem.txt: " + e.getMessage());
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        DanhSachDiem dsd = new DanhSachDiem();
-        dsd.doctuFile("Diem.txt");
-
-        System.out.println("Điểm trung bình: " + dsd.tinhDiemTrungBinh());
-        dsd.suaDiem();
-        dsd.hienThiTatCa();
-        dsd.ghiraFile("Diem.txt");
-    }
 }
-
