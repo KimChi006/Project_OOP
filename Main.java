@@ -37,7 +37,7 @@ public class Main {
                 case 1:
                     int chonhs = -1;
                     do {
-                        System.out.println("----- MENU QUẢN LÝ HỌC SINH -----");
+                        System.out.println("\n----- MENU QUẢN LÝ HỌC SINH -----");
                         System.out.println("1. Thêm học sinh");
                         System.out.println("2. Xóa học sinh");
                         System.out.println("3. Sửa thông tin học sinh");

@@ -6,14 +6,14 @@ import java.io.FileWriter;
 
 public class DanhSachHocSinh {
     private ArrayList<HocSinh> dshs = new ArrayList<>();
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public DanhSachHocSinh(Scanner sc) {
         this.sc = sc;
     }
 
     public void themHocSinh() {
-        System.out.println("Chọn loại học sinh muốn thêm:");
+        System.out.println("\nChọn loại học sinh muốn thêm:");
         System.out.println("1. Nội trú");
         System.out.println("2. Ngoại trú");
         System.out.print("→ Nhập lựa chọn: ");

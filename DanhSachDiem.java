@@ -6,7 +6,7 @@ import java.io.FileWriter;
 
 class DanhSachDiem implements IThaoTacFile {
     private ArrayList<Diem> dsd = new ArrayList<>();
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public DanhSachDiem(Scanner sc) {
         this.sc = sc;

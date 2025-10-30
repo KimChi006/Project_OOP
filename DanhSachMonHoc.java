@@ -3,7 +3,7 @@ import java.util.*;
 
 public class DanhSachMonHoc implements IThaoTacFile {
     private ArrayList<MonHoc> danhSach = new ArrayList<>();
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public DanhSachMonHoc(Scanner sc) {
         this.sc = sc;

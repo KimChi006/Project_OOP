@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DanhSachLop {
     ArrayList<Lop> dsLop = new ArrayList<>();
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
     public DanhSachLop(Scanner sc) {
         this.sc = sc;
     }

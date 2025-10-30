@@ -3,7 +3,7 @@ import java.util.*;
 
 class DanhSachGiaoVien implements IThaoTacFile {
     private ArrayList<GiaoVien> danhSach = new ArrayList<>();
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public DanhSachGiaoVien(Scanner sc) {
         this.sc = sc;

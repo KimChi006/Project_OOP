@@ -3,7 +3,7 @@ public abstract class Nguoi {
     protected String hoTen;
     protected String gioiTinh;
     protected int namSinh;
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public Nguoi() {}
 
