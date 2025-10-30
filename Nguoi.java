@@ -1,8 +1,9 @@
 import java.util.Scanner;
 public abstract class Nguoi{
-    private String hoTen;
-    private String gioiTinh;
-    private int namSinh;
+    protected String hoTen;
+    protected String gioiTinh;
+    protected int namSinh;
+    private Scanner sc;
 public Nguoi(){}
 public Nguoi(String hoTen, String gioiTinh, int namSinh){
     this.hoTen=hoTen;
@@ -28,7 +29,6 @@ public int getnamSinh(){
     return namSinh;
 }
 public void nhap(){
-    Scanner sc=new Scanner(System.in);
     System.out.println("nhap ho ten nguoi: ");
     sethoTen( sc.nextLine());
     System.out.println("nhap gioi tinh nguoi: ");
