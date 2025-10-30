@@ -5,7 +5,7 @@ public class MonHoc {
     private String tenMon;
     private int soTiet;
     public Object getMaMon;
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
     public MonHoc() {}
 
@@ -40,18 +40,18 @@ public class MonHoc {
     }
 
     public void hienThi() {
-        System.out.println("Ma mon" + maMon +"," + "Ten Mon" + ","+tenMon+"So Tiet" +","+ soTiet);
+        System.out.println("Mã môn:" + maMon +"," + "Tên môn:" + ","+tenMon+"Số tiết:" +","+ soTiet);
     }
 
     public String toFileString() {
         return maMon + "," + tenMon + "," + soTiet;
     }
     public void nhap(){
-        System.out.println("Nhap ma mon hoc:");
+        System.out.println("Nhập mã môn học:");
         maMon = sc.nextLine();
-        System.out.println("Nhap ten mon hoc:");
+        System.out.println("Nhập tên môn học:");
         tenMon = sc.nextLine();
-        System.out.println("Nhap so tiet cua mon hoc:");
+        System.out.println("Nhập số tiết của môn học:");
         soTiet = sc.nextInt();
     }
 }

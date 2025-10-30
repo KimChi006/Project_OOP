@@ -1,10 +1,10 @@
-
 import java.io.*;
 import java.util.*;
 
 public class DanhSachMonHoc implements IThaoTacFile {
     private ArrayList<MonHoc> danhSach = new ArrayList<>();
     private Scanner sc;
+
     public DanhSachMonHoc(Scanner sc) {
         this.sc = sc;
     }
@@ -14,19 +14,19 @@ public class DanhSachMonHoc implements IThaoTacFile {
     }
 
     public void xoaMon(String maMon) {
-    boolean found = false;
-    for (int i = 0; i < danhSach.size(); i++) {
-        if (danhSach.get(i).getMaMon().equalsIgnoreCase(maMon)) {
-            danhSach.remove(i);
-            found = true;
-            System.out.println("Đã xóa môn học có mã: " + maMon);
-            break; 
+        boolean found = false;
+        for (int i = 0; i < danhSach.size(); i++) {
+            if (danhSach.get(i).getMaMon().equalsIgnoreCase(maMon)) {
+                danhSach.remove(i);
+                found = true;
+                System.out.println("Đã xóa môn học có mã: " + maMon);
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Không tìm thấy môn học có mã: " + maMon);
         }
     }
-    if (!found) {
-        System.out.println("Không tìm thấy môn học có mã: " + maMon);
-    }
-}
 
     public void suaMonHoc() {
         System.out.print("Nhập mã môn muốn sửa: ");
@@ -34,24 +34,26 @@ public class DanhSachMonHoc implements IThaoTacFile {
 
         for (MonHoc mh : danhSach) {
             if (mh.getMaMon().equalsIgnoreCase(ma)) {
-                System.out.println("1. Sửa mã môn\n2. Sửa tên môn\n3. Sửa số tiết");
+                System.out.println("1. Sửa mã môn");
+                System.out.println("2. Sửa tên môn");
+                System.out.println("3. Sửa số tiết");
+                System.out.print("→ Chọn: ");
                 int chon = Integer.parseInt(sc.nextLine());
 
                 switch (chon) {
-                    case 1:
-                        System.out.println("NHập mã môn mới");
+                    case 1 -> {
+                        System.out.print("Nhập mã môn mới: ");
                         mh.setMaMon(sc.nextLine());
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.print("Nhập tên môn mới: ");
                         mh.setTenMon(sc.nextLine());
-                        break;
-                    case 3:
+                    }
+                    case 3 -> {
                         System.out.print("Nhập số tiết mới: ");
                         mh.setSoTiet(Integer.parseInt(sc.nextLine()));
-                        break;
-                    default:
-                        System.out.println("Lựa chọn không hợp lệ!");
+                    }
+                    default -> System.out.println("Lựa chọn không hợp lệ!");
                 }
                 return;
             }
@@ -59,16 +61,14 @@ public class DanhSachMonHoc implements IThaoTacFile {
         System.out.println("Không tìm thấy mã môn này!");
     }
 
-
     public void hienThiTatCa() {
-         if (danhSach.isEmpty()) {
-            System.out.println("Danh sách môn học trống");
+        if (danhSach.isEmpty()) {
+            System.out.println("Danh sách môn học trống!");
             return;
         }
         System.out.println("\n=== DANH SÁCH MÔN HỌC ===");
         for (MonHoc mh : danhSach) {
-            mh.hienThi();;
-          
+            mh.hienThi();
         }
     }
 
@@ -78,6 +78,7 @@ public class DanhSachMonHoc implements IThaoTacFile {
             danhSach.clear();
             String line;
             while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
                 String[] parts = line.split(",");
                 if (parts.length == 3) {
                     String ma = parts[0].trim();
@@ -86,14 +87,14 @@ public class DanhSachMonHoc implements IThaoTacFile {
                     danhSach.add(new MonHoc(ma, ten, soTiet));
                 }
             }
-            System.out.println("Doc file thanh cong MonHoc.txt!");
+            System.out.println("✅ Đọc file MonHoc.txt thành công!");
         } catch (IOException e) {
-            System.out.println("Loi khi đọc file MonHoc.txt: " + e.getMessage());
+            System.out.println("Lỗi khi đọc file MonHoc.txt: " + e.getMessage());
         }
     }
 
     @Override
-    public void ghiRaFile(String tenFile ) {
+    public void ghiRaFile(String tenFile) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(tenFile))) {
             for (MonHoc mh : danhSach) {
                 bw.write(mh.toFileString());
@@ -105,4 +106,3 @@ public class DanhSachMonHoc implements IThaoTacFile {
         }
     }
 }
-

@@ -7,6 +7,7 @@ import java.io.FileWriter;
 class DanhSachDiem implements IThaoTacFile {
     private ArrayList<Diem> dsd = new ArrayList<>();
     private Scanner sc;
+
     public DanhSachDiem(Scanner sc) {
         this.sc = sc;
     }
@@ -21,12 +22,13 @@ class DanhSachDiem implements IThaoTacFile {
 
         for (Diem d : dsd) {
             if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
-                tong += d.getDiemMieng()+d.getDiem15P()+d.getDiem1T()+d.getDiemThi();
+                tong += d.getDiemMieng() + d.getDiem15P() + d.getDiem1T() + d.getDiemThi();
                 dem++;
             }
         }
 
-        return dem == 0 ? 0 : tong / dem;
+        // Nếu mỗi học sinh chỉ có 1 bản ghi điểm, chia cho 4
+        return dem == 0 ? 0 : tong / 4;
     }
 
     public void suaDiem() {
@@ -52,27 +54,20 @@ class DanhSachDiem implements IThaoTacFile {
             if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
                 switch (chon) {
                     case 1:
-                            d.setDiemMieng(diemMoi);
-                            daSua = true;
-                        
+                        d.setDiemMieng(diemMoi);
+                        daSua = true;
                         break;
                     case 2:
-                       
-                            d.setDiem15P(diemMoi);
-                            daSua = true;
-                        
+                        d.setDiem15P(diemMoi);
+                        daSua = true;
                         break;
                     case 3:
-                       
-                            d.setDiem1T(diemMoi);
-                            daSua = true;
-                        
+                        d.setDiem1T(diemMoi);
+                        daSua = true;
                         break;
                     case 4:
-                       
-                            d.setDiemThi(diemMoi);
-                            daSua = true;
-                        
+                        d.setDiemThi(diemMoi);
+                        daSua = true;
                         break;
                     default:
                         System.out.println("Lựa chọn không hợp lệ.");
@@ -95,12 +90,14 @@ class DanhSachDiem implements IThaoTacFile {
 
     @Override
     public void docTuFile(String tenFile) {
+        dsd.clear();
         try {
             BufferedReader input = new BufferedReader(new FileReader(tenFile));
             String line;
             while ((line = input.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
                 String[] arr = line.split(",");
-                if (arr.length == 6) {                   
+                if (arr.length == 6) {
                     String maHS = arr[0];
                     String maMon = arr[1];
                     double DiemMieng = Double.parseDouble(arr[2]);
@@ -108,12 +105,13 @@ class DanhSachDiem implements IThaoTacFile {
                     double Diem1T = Double.parseDouble(arr[4]);
                     double DiemThi = Double.parseDouble(arr[5]);
 
-                    
-                    dsd.add(new Diem(maHS,maMon, DiemMieng, Diem15P, Diem1T, DiemThi));
+                    dsd.add(new Diem(maHS, maMon, DiemMieng, Diem15P, Diem1T, DiemThi));
                 }
             }
             input.close();
+            System.out.println("✅ Đọc file Diem.txt thành công, có " + dsd.size() + " bản ghi.");
         } catch (Exception ex) {
+            System.out.println("Lỗi khi đọc file Diem.txt: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -128,9 +126,9 @@ class DanhSachDiem implements IThaoTacFile {
                         d.getDiem1T() + "," + d.getDiemThi() + "\n");
             }
             fw.close();
-            System.out.println("Ghi file thành công Diem.txt!");
+            System.out.println("Ghi file thành công: Diem.txt!");
         } catch (Exception e) {
-            System.out.println("Loi khi doc file Diem.txt: " + e.getMessage());
+            System.out.println("Lỗi khi ghi file Diem.txt: " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DanhSachLop{
+public class DanhSachLop {
     ArrayList<Lop> dsLop = new ArrayList<>();
     private Scanner sc;
     public DanhSachLop(Scanner sc) {
@@ -14,7 +14,7 @@ public class DanhSachLop{
         try {
             File file = new File(tenFile);
             if (!file.exists()) {
-                System.out.println("File khong ton tai " + tenFile);
+                System.out.println("File không tồn tại: " + tenFile);
                 return;
             }
 
@@ -29,14 +29,14 @@ public class DanhSachLop{
                     Lop lop = new Lop(parts[0].trim(), parts[1].trim(), parts[2].trim());
                     dsLop.add(lop);
                 } else {
-                    System.out.println("Dong khong hop le " + line);
+                    System.out.println("Dòng không hợp lệ: " + line);
                 }
             }
             br.close();
-            System.out.println("Doc file LopHoc.txt thanh cong! (" + dsLop.size() + " lớp)");
+            System.out.println("✅ Đọc file LopHoc.txt thành công! (" + dsLop.size() + " lớp)");
 
         } catch (IOException e) {
-            System.out.println("Loi khi doc file LopHoc.txt" + e.getMessage());
+            System.out.println("Lỗi khi đọc file LopHoc.txt: " + e.getMessage());
         }
     }
 
@@ -49,22 +49,22 @@ public class DanhSachLop{
                 bw.newLine();
             }
             bw.close();
-            System.out.println("Ghi file thanh cong");
+            System.out.println("Ghi file thành công!");
         } catch (IOException e) {
-            System.out.println("Loi ghi file " + e.getMessage());
+            System.out.println("Lỗi ghi file: " + e.getMessage());
         }
     }
 
     // --- Hiển thị danh sách lớp ---
     public void hienThi() {
         if (dsLop.isEmpty()) {
-            System.out.println("Danh sach lop trong!");
+            System.out.println("Danh sách lớp trống!");
             return;
         }
-        System.out.println("\n=== DANH SACH LOP HOC ===");
+        System.out.println("\n=== DANH SÁCH LỚP HỌC ===");
         int i = 1;
         for (Lop lop : dsLop) {
-            System.out.println( i + ":"+lop);
+            System.out.println(i + ": " + lop);
             lop.xuat();
             i++;
         }
@@ -82,35 +82,35 @@ public class DanhSachLop{
 
     public void themLop() {
         Lop lop = new Lop();
-        System.out.println("\n--- Nhap thong tin lop moi ---");
+        System.out.println("\n--- Nhập thông tin lớp mới ---");
 
         // Nhập và kiểm tra trùng mã trước khi thêm
         do {
-            System.out.print("Nhap ma lop: ");
+            System.out.print("Nhập mã lớp: ");
             String ma = sc.nextLine();
             if (!tonTaiMa(ma)) {
                 lop.maLop = ma;
                 break;
             } else {
-                System.out.println("Ma lop khong ton tai. Nhap lai!");
+                System.out.println("Mã lớp đã tồn tại. Nhập lại!");
             }
         } while (true);
 
         // Nhập các thông tin còn lại
-        System.out.print("Nhap ten lop: ");
+        System.out.print("Nhập tên lớp: ");
         lop.tenLop = sc.nextLine();
 
-        System.out.print("Nhap giao vien chu nhiem: ");
+        System.out.print("Nhập giáo viên chủ nhiệm: ");
         lop.giaoVienCN = sc.nextLine();
 
         // Thêm vào danh sách
         dsLop.add(lop);
-        System.out.println("Them lop thanh cong!");
+        System.out.println("Thêm lớp thành công!");
     }
 
     // --- Xóa lớp theo mã ---
     public void xoaLop() {
-        System.out.print("Nhap ma lop can xoa: ");
+        System.out.print("Nhập mã lớp cần xóa: ");
         String ma = sc.nextLine();
         boolean found = false;
 
@@ -118,77 +118,72 @@ public class DanhSachLop{
             if (dsLop.get(i).maLop.equalsIgnoreCase(ma)) {
                 dsLop.remove(i);
                 found = true;
-                System.out.println("Da xoa lop co ma: " + ma);
+                System.out.println("Đã xóa lớp có mã: " + ma);
                 break;
             }
         }
-        if (!found) System.out.println("Khong tim thay lop co ma: " + ma);
+        if (!found) System.out.println("Không tìm thấy lớp có mã: " + ma);
     }
 
     // --- Sửa lớp theo mã ---
     public void suaLop() {
-        System.out.print("Nhap ma lop can sua: ");
+        System.out.print("Nhập mã lớp cần sửa: ");
         String ma = sc.nextLine();
         boolean found = false;
 
         for (Lop lop : dsLop) {
             if (lop.maLop.equalsIgnoreCase(ma)) {
-                System.out.println("Nhap thong tin cho lop moi " + ma);
-                //lop.nhap();
+                System.out.println("Nhập thông tin mới cho lớp " + ma);
                 found = true;
 
-                //---menu sửa lớp---
+                // --- Menu sửa lớp ---
                 int chon;
                 do {
-                    System.out.println("\n---Menu sua lop---" + ma + "---");
-                    System.out.println("1.Sua ma lop");
-                    System.out.println("2.Sua ten lop");
-                    System.out.println("3.Sua giao vien chu nhiem");
-                    System.out.println("0.Luu va thoat");
-                    System.out.println("Chon thanh phan can sua (0-3):");
+                    System.out.println("\n--- MENU SỬA LỚP --- " + ma + " ---");
+                    System.out.println("1. Sửa mã lớp");
+                    System.out.println("2. Sửa tên lớp");
+                    System.out.println("3. Sửa giáo viên chủ nhiệm");
+                    System.out.println("0. Lưu và thoát");
+                    System.out.print("→ Chọn thành phần cần sửa (0-3): ");
 
                     chon = Integer.parseInt(sc.nextLine());
                     switch (chon) {
                         case 1:
-                            System.out.println("Nhap ma lop moi");
+                            System.out.print("Nhập mã lớp mới: ");
                             String maLop = sc.nextLine();
                             lop.maLop = maLop;
-                            System.out.println("=>Sua ma lop thanh cong");
+                            System.out.println("=> Sửa mã lớp thành công!");
                             break;
 
                         case 2:
-                            System.out.println("Nhap ten lop moi");
+                            System.out.print("Nhập tên lớp mới: ");
                             String tenLop = sc.nextLine();
                             lop.tenLop = tenLop;
-                            System.out.println("=>Sua ten lop thanh cong");
+                            System.out.println("=> Sửa tên lớp thành công!");
                             break;
 
                         case 3:
-                            System.out.println("Nhap giao vien chu nhiem moi");
+                            System.out.print("Nhập giáo viên chủ nhiệm mới: ");
                             String giaoVienCN = sc.nextLine();
                             lop.giaoVienCN = giaoVienCN;
-                            System.out.println("=>Sua giao vien chu nhiem thanh cong");
+                            System.out.println("=> Sửa giáo viên chủ nhiệm thành công!");
                             break;
 
                         case 0:
-                            System.out.println("Da luu cac thay doi.");
+                            System.out.println("Đã lưu các thay đổi!");
                             break;
 
                         default:
-                            System.out.println("Lua chon khong hop le. Vui long nhap lai");
+                            System.out.println("Lựa chọn không hợp lệ, vui lòng nhập lại!");
                     }
-                }
+                } while (chon != 0);
 
-                while (chon != 0);
-
-
-                System.out.println("Sua lop thanh cong!");
+                System.out.println("Sửa lớp thành công!");
                 break;
             }
         }
 
-                if (!found) System.out.println("Khong tim thay lop co ma: " + ma);
-
+        if (!found) System.out.println("Không tìm thấy lớp có mã: " + ma);
     }
 
     // --- Menu điều khiển ---
@@ -226,6 +221,3 @@ public class DanhSachLop{
         } while (chon != 0);
     }
 }
-
-
-

@@ -6,7 +6,7 @@ public class HocSinh extends Nguoi{
     private String maLop;
     private String hanhKiem;
     private String loaihocsinh;
-    protected Scanner sc;
+    protected Scanner sc= new Scanner(System.in);
 
 public static String getMaHSTiepTheo() {
         return "HS" + maHSTiepTheo++;

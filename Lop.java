@@ -6,7 +6,7 @@ public class Lop{
     String maLop;
     String tenLop;
     String giaoVienCN;
-    private Scanner sc;
+    private Scanner sc = new Scanner(System.in);;
 
     public Lop (){
         this.maLop = "";
