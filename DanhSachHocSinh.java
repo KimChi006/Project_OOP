@@ -4,12 +4,14 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import model.HocSinh;
 
 
 public class DanhSachHocSinh {
     private ArrayList<HocSinh> dshs = new ArrayList<>();
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+    public DanhSachHocSinh(Scanner sc) {
+        this.sc = sc;
+    }
    
 
 public void themHocSinh(){
@@ -17,18 +19,18 @@ public void themHocSinh(){
     System.out.println("1. Nội Trú");
     System.out.println("2. Ngoại Trú");
     int chon = Integer.parseInt(sc.nextLine());
-    HocSinh = null;
 
+    HocSinh hs = null;
     switch (chon) {
         case 1:
-            hs=new NoiTru();
+            hs = new NoiTru();
             break;
         case 2:
-            hs=new NgoaiTru();
+            hs = new NgoaiTru();
             break;
     }
-    String maMoi = getMaHSTiepTheo();
-    hs.setMaHS(maMoi);
+    String maMoi = HocSinh.getMaHSTiepTheo();
+    hs.setmaHS(maMoi);
     hs.nhap();
     dshs.add(hs);
 }
@@ -46,7 +48,7 @@ public void hienThiDanhSach() {
 
 public HocSinh timHocSinh(String maHS) {
         for (HocSinh hs : dshs) {
-            if (hs.getMaHS().equals(maHS)) {
+            if (hs.getmaHS().equals(maHS)) {
                 return hs;
             }
         }
@@ -85,7 +87,7 @@ public void suaHocSinh() {
                     break;
                 case 2:
                     System.out.print("Nhập họ tên mới: ");
-                    hs.setHoTen(sc.nextLine());
+                    hs.sethoTen(sc.nextLine());
                     break;
                 
                 case 3:
@@ -114,7 +116,7 @@ public void suaHocSinh() {
                         ((NoiTru) hs).setKhuNoiTru(sc.nextLine());
                     } else if (hs instanceof NgoaiTru) {
                         System.out.print("Nhập địa chỉ mới: ");
-                        ((NgoaiTru) hs).setDiaChi(sc.nextLine());
+                        ((NgoaiTru) hs).setDiaChiNha(sc.nextLine());
                     }
                     break;
                 case 0:
@@ -138,10 +140,10 @@ public void xoaHocSinh() {
             System.out.println("Không tìm thấy học sinh.");
         }
     }
-public void doctuFile(String TenFile ){
+public void docTuFile(String TenFile ){
     try {
 
-			BufferedReader input = new BufferedReader(new FileReader("HocSinh.txt"));
+			BufferedReader input = new BufferedReader(new FileReader(TenFile));
 
 			String line = input.readLine();
 
@@ -152,62 +154,44 @@ public void doctuFile(String TenFile ){
             String hoTen = arr[1];
             
             String gioiTinh = arr[2];
-            int namSinh = arr[3];
+            int namSinh = Integer.parseInt(arr[3]);
             String maLop = arr[4];
             String hanhKiem = arr[5];
             String loaihocsinh = arr[6];
         
             HocSinh hs;
 
-             if (loai.equalsIgnoreCase("nội trú")) {
-             hs = new NoiTru(maHS, hoTen,gioiTinh,namSinh,maLop, hanhKiem, loaihocsinh, arr[7]);
+             if (loaihocsinh.equalsIgnoreCase("nội trú")) {
+             hs = new NoiTru(hoTen,gioiTinh,namSinh, maHS,maLop, hanhKiem, loaihocsinh, arr[7]);
              } else {
-             hs = new NgoaiTru(maHS, hoTen, gioiTinh,namSinh,maLop, hanhKiem, loaihocsinh, arr[7]);
+             hs = new NgoaiTru(hoTen, gioiTinh,namSinh,maHS,maLop, hanhKiem, loaihocsinh, arr[7]);
              }
 
              dshs.add(hs);
                }
 
 			}
+            System.out.println("Doc file thanh cong HocSinh.txt!");
 			input.close();
 		}
 		catch (Exception ex) {
-				ex.printStackTrace();
+            System.out.println("Loi khi đọc file HocSinh.txt: ");
+			ex.printStackTrace();
 		}
 }
 
 
-public void ghiraFile(String tenFile) {
+public void ghiRaFile(String tenFile) {
     try {
         FileWriter fw = new FileWriter("HocSinh.txt",false);
        for (HocSinh hs : dshs) {
-            fw.write(hs.getMaHS() + "," + hs.getHoTen() + "," + hs.getnamSinh() + "," +
-                    hs.getLop() + "," + hs.gethanhKiem() + "," + hs.getloaihocsinh() + "," +
-                    (hs instanceof NoiTru ? ((NoiTru) hs).getkhuNoiTru() : ((NgoaiTru) hs).getdiaChiNha()) + "\n");
+            fw.write(hs.getmaHS() + "," + hs.gethoTen() + "," + hs.getnamSinh() + "," +
+                    hs.getmaLop() + "," + hs.gethanhKiem() + "," + hs.getloaihocsinh() + "," +
+                    (hs instanceof NoiTru ? ((NoiTru) hs).getKhuNoiTru() : ((NgoaiTru) hs).getDiaChiNha()) + "\n");
        }
         fw.close();
         System.out.println("Ghi file thành công!");
     } catch (Exception e) {
         e.printStackTrace();
     }
-}
-
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    DanhSachHocSinh dshs = new DanhSachHocSinh();
-	
-    dshs.themHocSinh();
-    System.out.print("Nhập mã học sinh cần tìm: ");
-    String maHS = sc.nextLine();
-    dshs.timHocSinh(maHS);
-    
-    dshs.suaHocSinh();
-    dshs.xoaHocSinh();
-	
-    dshs.hienThiDanhSach();
-}
-}
-
-
-
-
+}}
