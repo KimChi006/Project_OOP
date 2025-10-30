@@ -227,12 +227,7 @@ public class DanhSachLop{
             }
         } while (chon != 0);
     }
-
-    // --- Main ---
-    public static void main(String[] args) {
-        DanhSachLop ds = new DanhSachLop();
-        ds.menu();
-    }
 }
+
 
 
