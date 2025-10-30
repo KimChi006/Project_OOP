@@ -1,31 +1,32 @@
-import model.MonHoc;
+
 import java.util.Scanner;
 public class Diem{
-    private HocSinh maHS;
-    private MonHoc maMon;
+    private String maHS;
+    private String maMon;
     private double DiemMieng;
     private double Diem15P;
     private double Diem1T;
     private double DiemThi;
+    private Scanner sc;
 public Diem(){}
-public Diem(HocSinh maHS,MonHoc maMon,double DiemMieng, double Diem15P, double Diem1T, double DiemThi){
+public Diem(String maHS,String maMon,double DiemMieng, double Diem15P, double Diem1T, double DiemThi){
     this.maHS=maHS;
-    this.monHoc=maMon;
+    this.maMon=maMon;
     this.DiemMieng=DiemMieng;
     this.Diem15P=Diem15P;
     this.Diem1T=Diem1T;
     this.DiemThi=DiemThi;
 }
-public void setmaHS(HocSinh maHS){
+public void setmaHS(String maHS){
     this.maHS=maHS;
 }
-public HocSinh getmaHS(){
+public String getmaHS(){
     return maHS;
 }
-public void setmonHoc(MonHoc maMon){
+public void setmaMon(String maMon){
     this.maMon=maMon;
 }
-public MonHoc getmaMon(){
+public String getmaMon(){
     return maMon;
 }
 public void setDiemMieng(double DiemMieng){
@@ -53,7 +54,6 @@ public double getDiemThi(){
     return DiemThi;
 }
 public void nhap(){
-    Scanner sc=Scanner(System.in);
     System.out.println("nhap ma so hoc sinh: ");
     setmaHS(sc.nextLine());
     System.out.println("nhap ma mon hoc cho hoc sinh: ");
