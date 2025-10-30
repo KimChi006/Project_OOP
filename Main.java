@@ -63,13 +63,17 @@ public class Main {
                             case 4:
                                 System.out.print("Nhập mã học sinh cần tìm: ");
                                 String mahs = sc.nextLine();
-                                dshs.timHocSinh(mahs);
+                                HocSinh hs = dshs.timHocSinh(mahs);
+								if (hs != null)
+        							hs.hienThi();
+    							else
+       								System.out.println("❌ Không tìm thấy học sinh có mã: " + mahs);
                                 break;
                             case 5:
                                 dshs.hienThiDanhSach();
                                 break;
                             case 6:
-                                dshs.ghiRaFile("Data/LuuHocSinh.txt");
+                                dshs.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\HocSinh.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý học sinh.");
@@ -114,7 +118,7 @@ public class Main {
                                 dsgv.hienThiTatCa();
                                 break;
                             case 5:
-                                dsgv.ghiRaFile("Data/LuuGiaoVien.txt");
+                                dsgv.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\GiaoVien.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý giáo viên.");
@@ -148,7 +152,7 @@ public class Main {
                                 dsd.hienThiTatCa();
                                 break;
                             case 4:
-                                dsd.ghiRaFile("Data/LuuDiem.txt");
+                                dsd.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\Diem.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý điểm.");
@@ -191,7 +195,7 @@ public class Main {
                                 dsmh.hienThiTatCa();
                                 break;
                             case 5:
-                                dsmh.ghiRaFile("Data/LuuMonhoc.txt");
+                                dsmh.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\Monhoc.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý môn học.");

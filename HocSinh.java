@@ -50,22 +50,22 @@ public String getloaihocsinh(){
 
 public void nhap(){
     super.nhap();
-    System.out.println("nhap ma lop cho hoc sinh: ");
+    System.out.println("Nhập mã lớp cho học sinh: ");
     setmaLop(sc.nextLine());
-    System.out.println("nhap hanh kiem cho hoc sinh: ");
+    System.out.println("Nhập hạnh kiểm cho học sinh: ");
     sethanhKiem(sc.nextLine());
-    System.out.println("nhap loai hoc sinh: ");
+    System.out.println("Nhập loại học sinh: ");
     setloaihocsinh(sc.nextLine());
 }
 
 public void hienThi(){
-    System.out.println(" ma hoc sinh: "+maHS);
-    System.out.println("  ten hoc sinh "+hoTen);
-    System.out.println("gioi tinh hoc sinh"+gioiTinh);
-    System.out.println("  nam sinh hõ sinh "+namSinh);
-    System.out.println(" lop hoc sinh"+maLop);
-    System.out.println("  hanh kiem hoc sinh"+hanhKiem);
-    System.out.println("  loai hoc sinh"+loaihocsinh);
+    System.out.println("\nMã học sinh: "+maHS);
+    System.out.println("Tên học sinh: "+hoTen);
+    System.out.println("Giới tính học sinh:"+gioiTinh);
+    System.out.println("Năm sinh học sinh: "+namSinh);
+    System.out.println("Lớp học sinh:"+maLop);
+    System.out.println("Hạnh kiểm học sinh:"+hanhKiem);
+    System.out.println("Loại học sinh:"+loaihocsinh);
 }
 
 }

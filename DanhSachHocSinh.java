@@ -111,7 +111,7 @@ public class DanhSachHocSinh {
                     hs.sethanhKiem(sc.nextLine());
                     break;
                 case 7:
-                    System.out.print("Nhập loại học sinh mới: ");
+                    System.out.print("Nhập loại học sinh mới (nội trú hoặc ngoại trú): ");
                     hs.setloaihocsinh(sc.nextLine());
                     break;
                 case 8:
