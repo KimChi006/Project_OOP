@@ -36,14 +36,8 @@ public void nhap(){
     System.out.println("nhap nam sinh nguoi: ");
     setnamSinh(sc.nextInt());
 }
-public void xuat(){
-    System.out.println("ho ten cua nguoi vua nhap la: "+ hoTen);
-    System.out.println("gioi tinh cua nguoi vua nhap la: "+gioiTinh);
-    System.out.println("nam sinh cua nguoi vua nhap la: "+namSinh);
-
-}
-
 public void hienThi(){};
 }
+
 
 
