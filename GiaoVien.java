@@ -51,7 +51,9 @@ class GiaoVien extends Nguoi {
 
     public void hienThi() {
         System.out.printf("%-10s ", maGV);
-        super.hienThi();
+        System.out.println("ho ten cua giao vien la: "+ hoTen);
+    	System.out.println("gioi tinh cua giao vien la: "+gioiTinh);
+    	System.out.println("nam sinh cua giao vien la: "+namSinh);
         System.out.printf(" %-15s %-10s\n", 
             monDay != null ? monDay.getTenMon() : "Chưa có", chucVu);
     }
