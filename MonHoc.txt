@@ -1,0 +1,13 @@
+MH01,Toán,30
+MH02,Ngữ văn,45
+MH03,Vật lý,50
+MH04,Hóa học,58
+MH05,Sinh học,35
+MH06,Lịch sử,45
+MH07,Địa lý,48
+MH08,Tiếng Anh,49
+MH09,GDCD,50
+MH10,Tin học,40
+MH11,Công nghệ,39
+MH12,Thể dục,47
+MH13,QPAN,42

@@ -1,0 +1,30 @@
+HS001,Nguyen Van My,Nữ,2006,10A2,TB,Noi tru,Khu C
+HS002,Vuong Duy Phuong,Nữ,2008,10A4,Tốt,Noi tru,Khu C
+HS003,Ngo Thanh Trung,Nam,2007,11A2,TB,Noi tru,Khu B
+HS004,Ly Kim Phuong,Nữ,2007,10A5,TB,Ngoai tru,99 Tran Phu
+HS005,Tran Thi Son,Nam,2006,10A2,Tốt,Ngoai tru,99 Tran Phu
+HS006,Hoang Gia Dat,Nữ,2007,12A1,Khá,Ngoai tru,45 Le Loi
+HS007,Vuong Duy Binh,Nam,2008,12A1,Tốt,Ngoai tru,99 Tran Phu
+HS008,Do Thi Trung,Nữ,2006,10A5,Tốt,Noi tru,Khu A
+HS009,Hoang Gia Lan,Nữ,2007,10A3,Khá,Ngoai tru,56 Hai Ba Trung
+HS010,Tran Thi My,Nữ,2007,10A4,Khá,Noi tru,Khu C
+HS011,Pham Minh Tam,Nam,2008,10A3,Khá,Noi tru,Khu A
+HS012,Bui Anh Hoa,Nam,2007,11A2,Khá,Noi tru,Khu A
+HS013,Vuong Duy Son,Nam,2007,11A2,TB,Noi tru,Khu D
+HS014,Nguyen Van Phuong,Nam,2006,11A1,Khá,Ngoai tru,56 Hai Ba Trung
+HS015,Tran Thi Hieu,Nữ,2007,10A5,TB,Ngoai tru,88 Pasteur
+HS016,Ly Kim Hoa,Nam,2007,10A3,Khá,Ngoai tru,78 Ly Thuong Kiet
+HS017,Tran Thi Thao,Nam,2007,11A2,TB,Ngoai tru,88 Pasteur
+HS018,Ngo Thanh An,Nam,2006,11A2,Tốt,Noi tru,Khu A
+HS019,Do Thi Binh,Nữ,2007,10A3,Khá,Noi tru,Khu B
+HS020,Tran Thi Son,Nam,2006,11A1,Khá,Noi tru,Khu A
+HS021,Vuong Duy Hieu,Nữ,2007,10A5,TB,Ngoai tru,34 Phan Dinh Phung
+HS022,Nguyen Van Tien,Nữ,2006,10A5,Khá,Noi tru,Khu D
+HS023,Do Thi Phuong,Nam,2008,11A2,TB,Ngoai tru,56 Hai Ba Trung
+HS024,Vuong Duy Son,Nữ,2007,10A1,Khá,Noi tru,Khu D
+HS025,Vuong Duy My,Nữ,2007,10A4,Tốt,Noi tru,Khu C
+HS026,Tran Thi Thao,Nữ,2007,10A3,Tốt,Ngoai tru,12 Nguyen Hue
+HS027,Ngo Thanh Tien,Nam,2007,10A1,Tốt,Noi tru,Khu C
+HS028,Bui Anh Tien,Nam,2006,11A1,TB,Noi tru,Khu A
+HS029,Vuong Duy Binh,Nữ,2008,11A1,Tốt,Noi tru,Khu A
+HS030,Pham Minh Thao,Nữ,2008,10A3,Khá,Ngoai tru,123 Nguyen Trai
