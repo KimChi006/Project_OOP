@@ -6,6 +6,7 @@ public class Lop{
     String maLop;
     String tenLop;
     String giaoVienCN;
+    private Scanner sc;
 
     public Lop (){
         this.maLop = "";
@@ -20,7 +21,6 @@ public class Lop{
     }
 
     public void nhap(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Nhập mã lớp:");
         this.maLop = sc.nextLine();
         System.out.println("Nhập tên lớp");
@@ -30,7 +30,6 @@ public class Lop{
     }
 
     public void xuat(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Mã lớp:"+maLop);
         System.out.println("Tên lớp:"+tenLop);
         System.out.println("Giáo viên chủ nhiệm:"+giaoVienCN);
