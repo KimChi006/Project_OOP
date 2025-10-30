@@ -1,11 +1,13 @@
-package Project_OOP;
+
 import java.io.*;
 import java.util.*;
 
-import IThaoTacFile;
-
 public class DanhSachMonHoc implements IThaoTacFile {
     private ArrayList<MonHoc> danhSach = new ArrayList<>();
+    private Scanner sc;
+    public DanhSachMonHoc(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void themMon(MonHoc mh) {
         danhSach.add(mh);
@@ -27,7 +29,6 @@ public class DanhSachMonHoc implements IThaoTacFile {
 }
 
     public void suaMonHoc() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhập mã môn muốn sửa: ");
         String ma = sc.nextLine();
 
@@ -85,9 +86,9 @@ public class DanhSachMonHoc implements IThaoTacFile {
                     danhSach.add(new MonHoc(ma, ten, soTiet));
                 }
             }
-            System.out.println("Đọc file thành công!");
+            System.out.println("Doc file thanh cong MonHoc.txt!");
         } catch (IOException e) {
-            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+            System.out.println("Loi khi đọc file MonHoc.txt: " + e.getMessage());
         }
     }
 
