@@ -1,8 +1,8 @@
-import model.Nguoi;
-import model.MonHoc;
+
 import java.util.Scanner;
 
 class GiaoVien extends Nguoi {
+    private Scanner sc;
 	static int magvtieptheo;
     private String maGV;
     private MonHoc monDay;
