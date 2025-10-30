@@ -43,6 +43,7 @@ public void xuat(){
 
 }
 
-public void HienThi(){};
+public void hienThi(){};
 }
+
 
