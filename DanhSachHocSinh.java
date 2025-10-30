@@ -38,7 +38,7 @@ public void hienThiDanhSach() {
             System.out.println("Danh sách học sinh trống.");
         } else {
             for (HocSinh hs : dshs) {
-                System.out.println(hs);
+                hs.hienThi();
             }
         }
     }
@@ -207,6 +207,7 @@ public static void main(String[] args) {
     dshs.hienThiDanhSach();
 }
 }
+
 
 
 
