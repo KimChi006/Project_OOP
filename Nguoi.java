@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Nguoi{
+public abstract class Nguoi{
     private String hoTen;
     private String gioiTinh;
     private int namSinh;
@@ -12,7 +12,7 @@ public Nguoi(String hoTen, String gioiTinh, int namSinh){
 public void sethoTen(String hoTen){
     this.hoTen=hoTen;
 }
-public gethoTen(){
+public String gethoTen(){
     return hoTen;
 }
 public void setgioiTinh(String gioiTinh){
@@ -42,4 +42,7 @@ public void xuat(){
     System.out.println("nam sinh cua nguoi vua nhap la: "+namSinh);
 
 }
+
+public void HienThi(){};
 }
+
