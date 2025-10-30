@@ -20,7 +20,7 @@ public class DanhSachDiem implements IThaoTacFile {
 
         for (Diem d : dsd) {
             if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
-                tong += d.getgiaTri();
+                tong += d.getDiemMieng()+d.getDiem15P()+d.getDiem1T()+d.getDiemThi();
                 dem++;
             }
         }
@@ -51,28 +51,27 @@ public class DanhSachDiem implements IThaoTacFile {
             if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
                 switch (chon) {
                     case 1:
-                        if (d instanceof DiemMieng) {
-                            d.setgiaTri(diemMoi);
+                            d.setDiemMieng(diemMoi);
                             daSua = true;
-                        }
+                        
                         break;
                     case 2:
-                        if (d instanceof Diem15Phut) {
-                            d.setgiaTri(diemMoi);
+                       
+                            d.setDiem15P(diemMoi);
                             daSua = true;
-                        }
+                        
                         break;
                     case 3:
-                        if (d instanceof Diem1Tiet) {
-                            d.setgiaTri(diemMoi);
+                       
+                            d.setDiem1T(diemMoi);
                             daSua = true;
-                        }
+                        
                         break;
                     case 4:
-                        if (d instanceof DiemThi) {
-                            d.setgiaTri(diemMoi);
+                       
+                            d.setDiemThi(diemMoi);
                             daSua = true;
-                        }
+                        
                         break;
                     default:
                         System.out.println("Lựa chọn không hợp lệ.");
@@ -103,13 +102,13 @@ public class DanhSachDiem implements IThaoTacFile {
                 if (arr.length == 6) {
                     String maHS = arr[0];
                     String maMon = arr[1];
-                    double diemMieng = Double.parseDouble(arr[2]);
-                    double diem15Phut = Double.parseDouble(arr[3]);
-                    double diem1Tiet = Double.parseDouble(arr[4]);
-                    double diemThi = Double.parseDouble(arr[5]);
+                    double DiemMieng = Double.parseDouble(arr[2]);
+                    double Diem15P = Double.parseDouble(arr[3]);
+                    double Diem1T = Double.parseDouble(arr[4]);
+                    double DiemThi = Double.parseDouble(arr[5]);
 
                     
-                    dsd.add(new Diem(maHS, maMon, diemMieng, diem15Phut, diem1Tiet, diemThi));
+                    dsd.add(new Diem(maHS, maMon, DiemMieng, Diem15P, Diem1T, DiemThi));
                 }
             }
             input.close();
@@ -124,8 +123,8 @@ public class DanhSachDiem implements IThaoTacFile {
             FileWriter fw = new FileWriter(tenFile, false);
             for (Diem d : dsd) {
                 fw.write(d.getmaHS() + "," + d.getmaMon() + "," +
-                        d.getDiemMieng() + "," + d.getDiem15Phut() + "," +
-                        d.getDiem1Tiet() + "," + d.getDiemThi() + "\n");
+                        d.getDiemMieng() + "," + d.getDiem15P() + "," +
+                        d.getDiem1T() + "," + d.getDiemThi() + "\n");
             }
             fw.close();
             System.out.println("Ghi file thành công!");
@@ -144,3 +143,4 @@ public class DanhSachDiem implements IThaoTacFile {
         dsd.ghiraFile("Diem.txt");
     }
 }
+
