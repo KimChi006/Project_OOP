@@ -13,13 +13,19 @@ public class DanhSachHocSinh {
     }
 
     public void themHocSinh() {
+        System.out.print("nhập số lượng học sinh muốn thêm: ");
+        int n=Integer.parseInt(sc.nextLine());
+        for(int i=0; i<n; i++){
+            HocSinh hs=null;
+            while(hs==null){
+        
         System.out.println("\nChọn loại học sinh muốn thêm:");
         System.out.println("1. Nội trú");
         System.out.println("2. Ngoại trú");
         System.out.print("→ Nhập lựa chọn: ");
         int chon = Integer.parseInt(sc.nextLine());
+            
 
-        HocSinh hs = null;
         switch (chon) {
             case 1:
                 hs = new NoiTru();
@@ -31,15 +37,15 @@ public class DanhSachHocSinh {
                 System.out.println("❌ Lựa chọn không hợp lệ!");
                 return;
         }
-
+    }
         String maMoi = HocSinh.getMaHSTiepTheo();
         hs.setmaHS(maMoi);
         hs.nhap();
         dshs.add(hs);
 
         System.out.println("✅ Đã thêm học sinh mới với mã: " + maMoi);
+}      
     }
-
     public void hienThiDanhSach() {
         if (dshs.isEmpty()) {
             System.out.println("❗ Danh sách học sinh trống.");
@@ -50,7 +56,7 @@ public class DanhSachHocSinh {
             }
         }
     }
-
+    
     public HocSinh timHocSinh(String maHS) {
         for (HocSinh hs : dshs) {
             if (hs.getmaHS().equalsIgnoreCase(maHS)) {
@@ -175,7 +181,7 @@ public class DanhSachHocSinh {
             ex.printStackTrace();
         }
     }
-
+    
     public void ghiRaFile(String tenFile) {
         try (FileWriter fw = new FileWriter(tenFile, false)) {
             for (HocSinh hs : dshs) {
