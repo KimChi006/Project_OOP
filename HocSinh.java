@@ -52,11 +52,18 @@ public void nhap(){
     super.nhap();
     System.out.println("Nhập mã lớp cho học sinh: ");
     setmaLop(sc.nextLine());
-    System.out.println("Nhập hạnh kiểm cho học sinh: ");
-    sethanhKiem(sc.nextLine());
-    System.out.println("Nhập loại học sinh: ");
-    setloaihocsinh(sc.nextLine());
+    String hanhKiem;
+       while(true){
+         System.out.print("nhập hạnh kiểm: ");
+         hanhKiem=sc.nextLine().trim();
+         if(hanhKiem.equalsIgnoreCase("Tốt")||hanhKiem.equalsIgnoreCase("Khá")||hanhKiem.equalsIgnoreCase("Trung Bình")||hanhKiem.equalsIgnoreCase("Yếu")||hanhKiem.equalsIgnoreCase("Kém")) break;
+         System.out.println("hạnh kiểm phải là tốt hoặc khá hoặc trung bình hoặc yếu hoặc kém, vui lòng nhập lại!");
+         }
+       sethanhKiem(hanhKiem);
+ 
 }
+
+
 
 public void hienThi(){
     System.out.println("\nMã học sinh: "+maHS);
@@ -65,7 +72,7 @@ public void hienThi(){
     System.out.println("Năm sinh học sinh: "+namSinh);
     System.out.println("Lớp học sinh:"+maLop);
     System.out.println("Hạnh kiểm học sinh:"+hanhKiem);
-    System.out.println("Loại học sinh:"+loaihocsinh);
+   
 }
 
 }
