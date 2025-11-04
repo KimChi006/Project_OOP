@@ -48,10 +48,19 @@ public class MonHoc {
     }
     public void nhap(){
         System.out.println("Nhập mã môn học:");
-        maMon = sc.nextLine();
+          while (true) {
+            System.out.print("Nhập mã môn học: ");
+            maMon = sc.nextLine().trim();
+            if (maMon.matches("^MH\\d{3}$")) { 
+                break; 
+            } else {
+                System.out.println("❌ Mã môn học không hợp lệ! Vui lòng nhập theo dạng MHXXX (X là số).");
+            }
+        }
         System.out.println("Nhập tên môn học:");
         tenMon = sc.nextLine();
         System.out.println("Nhập số tiết của môn học:");
         soTiet = sc.nextInt();
     }
 }
+
