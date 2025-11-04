@@ -4,14 +4,14 @@ class GiaoVien extends Nguoi {
     private Scanner sc = new Scanner(System.in);
     static int magvtieptheo;
     private String maGV;
-    private MonHoc monDay;
+    private String monDay;
     private String chucVu;
 
     public GiaoVien() {
         super();
     }
 
-    public GiaoVien(String maGV, String hoTen, String gioiTinh, int namSinh, MonHoc monDay, String chucVu) {
+    public GiaoVien(String maGV, String hoTen, String gioiTinh, int namSinh, String monDay, String chucVu) {
         super(hoTen, gioiTinh, namSinh);
         this.maGV = maGV;
         this.monDay = monDay;
@@ -35,33 +35,18 @@ class GiaoVien extends Nguoi {
     }
 
     public void nhap() {
-        System.out.print("Nhập mã giáo viên: ");
-        maGV = sc.nextLine();
 
-        System.out.print("Nhập họ tên: ");
-        hoTen = sc.nextLine();
-
-        System.out.print("Nhập giới tính: ");
-        gioiTinh = sc.nextLine();
-
-        System.out.print("Nhập năm sinh: ");
-        namSinh = Integer.parseInt(sc.nextLine());
+        super.nhap();
 
         System.out.print("Nhập môn dạy: ");
-        String tenMon = sc.nextLine();
-        monDay = new MonHoc(tenMon, "", 0);
+        monDay = sc.nextLine();
 
-        System.out.print("Nhập chức vụ: ");
+        System.out.print("Nhập chức vụ (bộ môn hoặc chủ nhiệm): ");
         chucVu = sc.nextLine();
     }
 
     public void hienThi() {
-        System.out.printf("%-10s ", maGV);
-        System.out.println("Họ tên của giáo viên là: " + hoTen);
-        System.out.println("Giới tính của giáo viên là: " + gioiTinh);
-        System.out.println("Năm sinh của giáo viên là: " + namSinh);
-        System.out.printf("Môn dạy: %-15s Chức vụ: %-10s\n",
-            monDay != null ? monDay.getTenMon() : "Chưa có", chucVu);
+        System.out.printf("%s, %s, %s, %d, %s, %s\n", maGV, hoTen, gioiTinh, namSinh,monDay,chucVu);
     }
 
     // Getter - Setter
@@ -73,11 +58,11 @@ class GiaoVien extends Nguoi {
         this.maGV = maGV;
     }
 
-    public MonHoc getMonDay() {
+    public String getMonDay() {
         return monDay;
     }
 
-    public void setMonDay(MonHoc monDay) {
+    public void setMonDay(String monDay) {
         this.monDay = monDay;
     }
 

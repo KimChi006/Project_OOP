@@ -9,6 +9,18 @@ class DanhSachGiaoVien implements IThaoTacFile {
         this.sc = sc;
     }
 
+    public void themNHieuGiaoVien(){
+        System.out.print("Nhap so luong giao vien muon them vao:");
+        int SL = Integer.parseInt(sc.nextLine());
+
+        for(int i = 0; i<SL; i++){
+            GiaoVien gv = new GiaoVien();
+            System.out.println("\n→ Nhập thông tin giáo viên thứ " + (i + 1) + ":");
+            themGV(gv);
+        }
+        System.out.println("\n Đã thêm " + SL+ " giáo viên vào danh sách!");
+    }
+
     public void themGV(GiaoVien gv) {
         String maMoi = GiaoVien.getMaGVTiepTheo();
         gv.setMaGV(maMoi);
@@ -29,15 +41,18 @@ class DanhSachGiaoVien implements IThaoTacFile {
     }
 
     public void suaGV(String maGV) {
+        int chon = -1;
         for (GiaoVien gv : danhSach) {
-            if (gv.getMaGV().equalsIgnoreCase(maGV)) {
-                System.out.println("===== Sửa thông tin giáo viên =====");
+            while (gv.getMaGV().equalsIgnoreCase(maGV)) {
+                do{
+                System.out.println("\n===== Sửa thông tin giáo viên =====");
                 System.out.println("1. Sửa họ tên");
                 System.out.println("2. Sửa năm sinh");
                 System.out.println("3. Sửa môn dạy");
-                System.out.println("4. Sửa chức vụ");
+                System.out.println("4. Sửa chức vụ ");
+                System.out.println("0.Thoat");
                 System.out.print("→ Chọn mục muốn sửa: ");
-                int chon = sc.nextInt();
+                chon = sc.nextInt();
                 sc.nextLine(); // bỏ ký tự Enter
 
                 switch (chon) {
@@ -52,16 +67,20 @@ class DanhSachGiaoVien implements IThaoTacFile {
                     case 3:
                         System.out.print("Nhập tên môn mới: ");
                         String tenMon = sc.nextLine();
-                        gv.setMonDay(new MonHoc(tenMon, "", 0));
+                        gv.setMonDay(tenMon);
                         break;
                     case 4:
-                        System.out.print("Nhập chức vụ mới: ");
+                        System.out.print("Nhập chức vụ mới (bộ môn hay chủ nhiệm): ");
                         gv.setChucVu(sc.nextLine());
+                        break;
+                    case 0:
+                        System.out.print("Thoát sửa giáo viên!");
                         break;
                     default:
                         System.out.println("❌ Lựa chọn không hợp lệ!");
                 }
                 System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
+                }while(chon != 0);
                 return;
             }
         }
@@ -69,32 +88,42 @@ class DanhSachGiaoVien implements IThaoTacFile {
     }
 
     public void hienThiTatCa() {
-        System.out.printf("%-10s %-20s %-10s %-10s %-20s %-15s\n",
-                "Mã GV", "Họ tên", "Giới tính", "Năm sinh", "Môn dạy", "Chức vụ");
-        for (GiaoVien gv : danhSach) {
-            gv.hienThi();
+        if (danhSach.isEmpty()) {
+            System.out.println("❌ Danh sách giáo viên trống!");
+            return;
         }
+        for (GiaoVien gv : danhSach)
+            gv.hienThi();
     }
 
     // ===== TRIỂN KHAI interface ThaoTacFile =====
     @Override
-    public void docTuFile(String duongDan) {
-        try (BufferedReader br = new BufferedReader(new FileReader(duongDan))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] t = line.split(",");
-                if (t.length >= 6) {
-                    MonHoc mh = new MonHoc(t[4], "", 0);
-                    GiaoVien gv = new GiaoVien(t[0], t[1], t[2],
-                            Integer.parseInt(t[3]), mh, t[5]);
-                    danhSach.add(gv);
-                }
+    public void docTuFile(String tenFile) {
+    try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            line = line.trim();
+            if (line.isEmpty()) continue;
+
+            String[] arr = line.split(",");
+            if (arr.length == 6) {
+                String maGV = arr[0];
+                String hoTen = arr[1];
+                String gioiTinh = arr[2];
+                int namSinh = Integer.parseInt(arr[3]);
+                String tenMon = arr[4];
+                String chucVu = arr[5];
+
+                // Tạo giáo viên
+                GiaoVien gv = new GiaoVien(maGV, hoTen, gioiTinh, namSinh, tenMon, chucVu);
+                danhSach.add(gv);
             }
-            System.out.println("✅ Đọc file thành công: GiaoVien.txt!");
-        } catch (IOException e) {
-            System.out.println("❌ Lỗi đọc file GiaoVien.txt: " + e.getMessage());
         }
+    } catch (IOException e) {
+        System.out.println("Lỗi đọc file: " + e.getMessage());
     }
+}
+
 
     @Override
     public void ghiRaFile(String duongDan) {
@@ -105,7 +134,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
                         gv.gethoTen(),
                         gv.getgioiTinh(),
                         String.valueOf(gv.getnamSinh()),
-                        gv.getMonDay().getTenMon(),
+                        gv.getMonDay(),
                         gv.getChucVu()));
                 bw.newLine();
             }
