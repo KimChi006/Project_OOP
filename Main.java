@@ -10,11 +10,11 @@ public class Main {
         DanhSachDiem dsd = new DanhSachDiem(sc);
         DanhSachLop dsl = new DanhSachLop(sc);
 
-        dshs.docTuFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\HocSinh.txt");
-		dsgv.docTuFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\GiaoVien.txt");
-		dsmh.docTuFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\MonHoc.txt");
-		dsd.docTuFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\Diem.txt");
-		dsl.docTuFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\LopHoc.txt");
+        dshs.docTuFile("D:\\Project_OOP\\HocSinh.txt");
+		dsgv.docTuFile("D:\\Project_OOP\\GiaoVien.txt");
+		dsmh.docTuFile("D:\\Project_OOP\\MonHoc.txt");
+		dsd.docTuFile("D:\\Project_OOP\\Diem.txt");
+		dsl.docTuFile("D:\\Project_OOP\\LopHoc.txt");
 
 
         int chon = -1;
@@ -85,7 +85,7 @@ public class Main {
                 case 2:
                     int chongv = -1;
                     do {
-                        System.out.println("----- MENU QUẢN LÝ GIÁO VIÊN -----");
+                        System.out.println("\n----- MENU QUẢN LÝ GIÁO VIÊN -----");
                         System.out.println("1. Thêm giáo viên");
                         System.out.println("2. Xóa giáo viên");
                         System.out.println("3. Sửa thông tin giáo viên");
@@ -130,7 +130,7 @@ public class Main {
                 case 3:
                     int chond = -1;
                     do {
-                        System.out.println("----- MENU QUẢN LÝ ĐIỂM -----");
+                        System.out.println("\n----- MENU QUẢN LÝ ĐIỂM -----");
                         System.out.println("1. Tính điểm trung bình");
                         System.out.println("2. Sửa điểm của học sinh");
                         System.out.println("3. Hiển thị tất cả");
@@ -164,7 +164,7 @@ public class Main {
                 case 4:
                     int chonmh = -1;
                     do {
-                        System.out.println("----- MENU QUẢN LÝ MÔN HỌC -----");
+                        System.out.println("\n----- MENU QUẢN LÝ MÔN HỌC -----");
                         System.out.println("1. Thêm môn học");
                         System.out.println("2. Xóa môn học");
                         System.out.println("3. Sửa môn học");
