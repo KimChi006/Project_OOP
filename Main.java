@@ -73,11 +73,13 @@ public class Main {
                                 dshs.hienThiDanhSach();
                                 break;
                             case 6:
-                                dshs.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\HocSinh.txt");
+                                dshs.ghiRaFile("D:\\Project_OOP\\HocSinh.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý học sinh.");
                                 break;
+                            default:
+                                System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chonhs != 0);
                     break;
@@ -97,12 +99,9 @@ public class Main {
                         chongv = sc.nextInt();
                         sc.nextLine();
 
-                        GiaoVien gv = new GiaoVien();
-
                         switch (chongv) {
                             case 1:
-                                gv.nhap();
-                                dsgv.themGV(gv);
+                                dsgv.themNHieuGiaoVien();
                                 break;
                             case 2:
                                 System.out.print("Nhập mã giáo viên cần xóa: ");
@@ -118,11 +117,13 @@ public class Main {
                                 dsgv.hienThiTatCa();
                                 break;
                             case 5:
-                                dsgv.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\GiaoVien.txt");
+                                dsgv.ghiRaFile("D:\\Project_OOP\\GiaoVien.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý giáo viên.");
                                 break;
+                            default:
+                                System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chongv != 0);
                     break;
@@ -152,11 +153,13 @@ public class Main {
                                 dsd.hienThiTatCa();
                                 break;
                             case 4:
-                                dsd.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\Diem.txt");
+                                dsd.ghiRaFile("D:\\Project_OOP\\Diem.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý điểm.");
                                 break;
+                            default:
+                                System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chond != 0);
                     break;
@@ -195,11 +198,13 @@ public class Main {
                                 dsmh.hienThiTatCa();
                                 break;
                             case 5:
-                                dsmh.ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\Monhoc.txt");
+                                dsmh.ghiRaFile("D:\\Project_OOP\\Monhoc.txt");
                                 break;
                             case 0:
                                 System.out.println("Thoát quản lý môn học.");
                                 break;
+                            default:
+                                System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chonmh != 0);
                     break;
@@ -210,6 +215,8 @@ public class Main {
                 case 0:
                     System.out.println("Thoát chương trình!");
                     break;
+                default:
+                    System.out.println("❌ Lựa chọn không hợp lệ!");
             }
         } while (chon != 0);
     }

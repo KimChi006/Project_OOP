@@ -209,7 +209,7 @@ public class DanhSachLop {
                     docTuFile(f);
                 }
                 case 2 -> {
-                    ghiRaFile("D:\\QlyHS\\Project_OOP\\Code\\Data\\LopHoc.txt");
+                    ghiRaFile("D:\\Project_OOP\\LopHoc.txt");
                 }
                 case 3 -> hienThi();
                 case 4 -> themLop();

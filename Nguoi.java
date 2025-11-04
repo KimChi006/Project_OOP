@@ -46,5 +46,5 @@ public abstract class Nguoi {
         setnamSinh(sc.nextInt());
     }
 
-    public void hienThi() {};
+    public abstract void hienThi();
 }
