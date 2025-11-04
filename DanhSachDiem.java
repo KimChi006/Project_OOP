@@ -26,9 +26,14 @@ class DanhSachDiem implements IThaoTacFile {
                 dem++;
             }
         }
+        if (dem == 0) {
+        System.out.println("❌ Không tìm thấy điểm cho học sinh và môn học đã nhập.");
+        return 0;
+    }
 
-        // Nếu mỗi học sinh chỉ có 1 bản ghi điểm, chia cho 4
-        return dem == 0 ? 0 : tong / 4;
+     double diemTB = tong / (dem * 4);
+    System.out.printf("✅ Điểm trung bình của học sinh %s môn %s là: %.2f\n", maHS, maMon, diemTB);
+    return diemTB;
     }
 
     public void suaDiem() {
