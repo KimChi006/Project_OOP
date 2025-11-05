@@ -29,9 +29,11 @@ public class DanhSachHocSinh {
         switch (chon) {
             case 1:
                 hs = new NoiTru();
+                hs.setloaihocsinh("Nội Trú");
                 break;
             case 2:
                 hs = new NgoaiTru();
+                hs.setloaihocsinh("Ngoại Trú");
                 break;
             default:
                 System.out.println("❌ Lựa chọn không hợp lệ!");
@@ -201,3 +203,4 @@ public class DanhSachHocSinh {
         }
     }
 }
+
