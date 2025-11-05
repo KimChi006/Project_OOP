@@ -53,7 +53,7 @@ public abstract class Nguoi {
         System.out.print("Nhập năm sinh: ");
         try {
             namSinh = Integer.parseInt(sc.nextLine());
-            if (namSinh >=1990&&<2025) break;
+            if (namSinh >=1990&&namSinh<2025) break;
             else System.out.println("năm sinh phải lớn hơn 1990 và nhỏ hơn 2025, vui lòng nhập lại!.");
         } catch (NumberFormatException e) {
             System.out.println(" Năm sinh phải là số nguyên. Vui lòng nhập lại.");
@@ -64,6 +64,7 @@ public abstract class Nguoi {
 
     public void hienThi() {};
 }
+
 
 
 
