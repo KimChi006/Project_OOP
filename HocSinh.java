@@ -60,18 +60,14 @@ public void nhap(){
          System.out.println("hạnh kiểm phải là tốt hoặc khá hoặc trung bình hoặc yếu hoặc kém, vui lòng nhập lại!");
          }
        sethanhKiem(hanhKiem);
+    System.out.println(getloaihocsinh());
  
 }
 
 
 
 public void hienThi(){
-    System.out.println("\nMã học sinh: "+maHS);
-    System.out.println("Tên học sinh: "+hoTen);
-    System.out.println("Giới tính học sinh:"+gioiTinh);
-    System.out.println("Năm sinh học sinh: "+namSinh);
-    System.out.println("Lớp học sinh:"+maLop);
-    System.out.println("Hạnh kiểm học sinh:"+hanhKiem);
+    System.out.println(maHS + "," + hoTen + "," + maLop + "," + gioiTinh + "," + namSinh + "," + hanhKiem + ","+ loaihocsinh);
    
 }
 
@@ -106,7 +102,7 @@ class NoiTru extends HocSinh {
     @Override
     public void hienThi() {
         super.hienThi();
-        System.out.println("Khu nội trú: " + khuNoiTru);
+        System.out.println("," + khuNoiTru);
     }
 }
 class NgoaiTru extends HocSinh {
@@ -138,9 +134,10 @@ class NgoaiTru extends HocSinh {
     @Override
     public void hienThi() {
         super.hienThi();
-        System.out.println("Địa chỉ nhà: " + diaChiNha);
+        System.out.println("," + diaChiNha);
     }
 }
+
 
 
 
