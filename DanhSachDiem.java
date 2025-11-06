@@ -51,9 +51,17 @@ class DanhSachDiem implements IThaoTacFile {
         System.out.print("Lựa chọn: ");
         int chon = Integer.parseInt(sc.nextLine());
 
+       double diemMoi;
+        while(true){
         System.out.print("Nhập điểm mới: ");
-        double diemMoi = Double.parseDouble(sc.nextLine());
+        try {
+           diemMoi = sc.nextDouble();
+           if(diemMoi<=10 && diemMoi>=0)break;
+               else System.out.println("điểm mới cần nhập phải lớn hơn bằng 0 vànhỏ hơn hoặc bằng 10, vui lòng nhập lại!"); 
+        }catch(NumberFormatException e){
 
+            }
+        }
         boolean daSua = false;
         for (Diem d : dsd) {
             if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
@@ -138,3 +146,4 @@ class DanhSachDiem implements IThaoTacFile {
         }
     }
 }
+
