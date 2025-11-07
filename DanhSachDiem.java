@@ -57,7 +57,7 @@ class DanhSachDiem implements IThaoTacFile {
         try {
            diemMoi = sc.nextDouble();
            if(diemMoi<=10 && diemMoi>=0)break;
-               else System.out.println("điểm mới cần nhập phải lớn hơn bằng 0 vànhỏ hơn hoặc bằng 10, vui lòng nhập lại!"); 
+               else System.out.println("điểm mới cần nhập phải lớn hơn bằng 0 và nhỏ hơn hoặc bằng 10, vui lòng nhập lại!"); 
         }catch(NumberFormatException e){
 
             }
@@ -146,4 +146,5 @@ class DanhSachDiem implements IThaoTacFile {
         }
     }
 }
+
 
