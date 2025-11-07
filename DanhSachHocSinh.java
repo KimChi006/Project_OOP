@@ -18,12 +18,15 @@ public class DanhSachHocSinh {
         for(int i=0; i<n; i++){
             HocSinh hs=null;
             while(hs==null){
-        
+        int chon=0;
+        do{
         System.out.println("\nChọn loại học sinh muốn thêm:");
         System.out.println("1. Nội trú");
         System.out.println("2. Ngoại trú");
+        System.out.println("0. Thoát thêm hs");
+
         System.out.print("→ Nhập lựa chọn: ");
-        int chon = Integer.parseInt(sc.nextLine());
+        chon = Integer.parseInt(sc.nextLine());
             
 
         switch (chon) {
@@ -35,18 +38,22 @@ public class DanhSachHocSinh {
                 hs = new NgoaiTru();
                 hs.setloaihocsinh("Ngoại Trú");
                 break;
+            case 0:
+                System.out.println("thoát thêm học sinh");
+                return;
             default:
-                System.out.println("❌ Lựa chọn không hợp lệ!");
-                continue;
-        }
-    }
-        String maMoi = HocSinh.getMaHSTiepTheo();
-        hs.setmaHS(maMoi);
-        hs.nhap();
-        dshs.add(hs);
+                System.out.println("❌ Lựa chọn không hợp lệ, vui lòng nhập lại!");
+                 continue;
+             }
+            }while (chon!=0&&hs==null); {}
+           }
+           String maMoi = HocSinh.getMaHSTiepTheo();
+           hs.setmaHS(maMoi);
+           hs.nhap();
+           dshs.add(hs);
 
-        System.out.println("✅ Đã thêm học sinh mới với mã: " + maMoi);
-}      
+           System.out.println("✅ Đã thêm học sinh mới với mã: " + maMoi);
+         }      
     }
     public void hienThiDanhSach() {
         if (dshs.isEmpty()) {
@@ -133,7 +140,7 @@ public class DanhSachHocSinh {
                     break;
                 case 0:
                     System.out.println("⬅️ Thoát sửa.");
-                    break;
+                    continue;
                 default:
                     System.out.println("❌ Lựa chọn không hợp lệ.");
             }
@@ -141,7 +148,7 @@ public class DanhSachHocSinh {
     }
 
     public void xoaHocSinh() {
-        while(true){
+        while (true) {
         System.out.print("Nhập mã học sinh cần xóa: ");
         String maHS = sc.nextLine();
         HocSinh hs = timHocSinh(maHS);
@@ -151,10 +158,11 @@ public class DanhSachHocSinh {
             System.out.println("✅ Đã xóa học sinh có mã " + maHS);
             break;
         } else {
-            System.out.println("❌ Không tìm thấy học sinh.");
-           }
-       }
+            System.out.println("❌ Không tìm thấy học sinh, vui lòng nhập lại!.");
+        }
     }
+}
+
     public void docTuFile(String tenFile) {
         try (BufferedReader input = new BufferedReader(new FileReader(tenFile))) {
             String line;
@@ -205,5 +213,3 @@ public class DanhSachHocSinh {
         }
     }
 }
-
-
