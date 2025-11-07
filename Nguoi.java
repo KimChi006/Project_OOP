@@ -44,7 +44,7 @@ public abstract class Nguoi {
      while(true){
          System.out.print("Nhập giới tính: ");
          gioiTinh=sc.nextLine().trim();//bỏ khoảng trắng phía trước trong hàm nhập để so sánh equal trong if
-         if(gioiTinh.equalsIgnoreCase("Nam") || gioiTinh.equalsIgnoreCase("Nữ")) break;
+         if(gioiTinh.equalsIgnoreCase("Nam") || gioiTinh.equalsIgnoreCase("Nữ")|| gioiTinh.equalsIgnoreCase("Nu")) break;
          System.out.println("giới tính phải là nam hoặc nữ, vui lòng nhập lại!");
     }
         setgioiTinh(gioiTinh);
@@ -54,7 +54,7 @@ public abstract class Nguoi {
         try {
             namSinh = Integer.parseInt(sc.nextLine());
             if (namSinh >=1925&&namSinh<2025) break;
-            else System.out.println("năm sinh phải lớn hơn 1990 và nhỏ hơn 2025, vui lòng nhập lại!.");
+            else System.out.println("năm sinh phải lớn hơn 1925 và nhỏ hơn 2025, vui lòng nhập lại!.");
         } catch (NumberFormatException e) {
             System.out.println(" Năm sinh phải là số nguyên. Vui lòng nhập lại.");
         }

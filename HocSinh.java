@@ -56,15 +56,17 @@ public void nhap(){
        while(true){
          System.out.print("nhập hạnh kiểm: ");
          hanhKiem=sc.nextLine().trim();
-         if(hanhKiem.equalsIgnoreCase("Tốt")||hanhKiem.equalsIgnoreCase("Khá")||hanhKiem.equalsIgnoreCase("Trung Bình")||hanhKiem.equalsIgnoreCase("Yếu")||hanhKiem.equalsIgnoreCase("Kém")) break;
-         System.out.println("hạnh kiểm phải là tốt hoặc khá hoặc trung bình hoặc yếu hoặc kém, vui lòng nhập lại!");
+        if(hanhKiem.equalsIgnoreCase("Tốt")||hanhKiem.equalsIgnoreCase("Khá")
+         ||hanhKiem.equalsIgnoreCase("Trung Bình")||hanhKiem.equalsIgnoreCase("Yếu")
+         ||hanhKiem.equalsIgnoreCase("Kém") || hanhKiem.equalsIgnoreCase("Tot")
+         || hanhKiem.equalsIgnoreCase("Kha") || hanhKiem.equalsIgnoreCase("Trung Binh")
+         || hanhKiem.equalsIgnoreCase("Yeu")|| hanhKiem.equalsIgnoreCase("Kem")) break;
+         System.out.println("hạnh kiểm phải là Tốt hoặc Khá hoặc Trung bình hoặc Yếu hoặc Kém, vui lòng nhập lại!");
          }
        sethanhKiem(hanhKiem);
     System.out.println(getloaihocsinh());
  
 }
-
-
 
 public void hienThi(){
     System.out.println(maHS + "," + hoTen + "," + maLop + "," + gioiTinh + "," + namSinh + "," + hanhKiem + ","+ loaihocsinh);
@@ -137,7 +139,6 @@ class NgoaiTru extends HocSinh {
         System.out.println("," + diaChiNha);
     }
 }
-
 
 
 
