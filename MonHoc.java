@@ -47,14 +47,13 @@ public class MonHoc {
         return maMon + "," + tenMon + "," + soTiet;
     }
     public void nhap(){
-        System.out.println("Nhập mã môn học:");
           while (true) {
             System.out.print("Nhập mã môn học: ");
             maMon = sc.nextLine().trim();
-            if (maMon.matches("^MH\\d{3}$")) { 
+            if (maMon.matches("^MH\\d{2}$")) { 
                 break; 
             } else {
-                System.out.println("❌ Mã môn học không hợp lệ! Vui lòng nhập theo dạng MHXXX (X là số).");
+                System.out.println("❌ Mã môn học không hợp lệ! Vui lòng nhập theo dạng MHXX (X là số).");
             }
         }
         System.out.println("Nhập tên môn học:");

@@ -10,7 +10,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
     }
 
     public void themNHieuGiaoVien(){
-        System.out.print("Nhập số lượng giáo viên muốn thêm vào (nhập 0 để thoát):");
+        System.out.print("\nNhập số lượng giáo viên muốn thêm vào (nhập 0 để thoát):");
         int SL = Integer.parseInt(sc.nextLine());
         if(SL == 0){
             System.out.println("→ Đã hủy thao tác thêm giáo viên.");
@@ -63,27 +63,30 @@ class DanhSachGiaoVien implements IThaoTacFile {
                     case 1:
                         System.out.print("Nhập họ tên mới: ");
                         gv.sethoTen(sc.nextLine());
+                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
                         break;
                     case 2:
                         System.out.print("Nhập năm sinh mới: ");
                         gv.setnamSinh(Integer.parseInt(sc.nextLine()));
+                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
                         break;
                     case 3:
                         System.out.print("Nhập tên môn mới: ");
                         String tenMon = sc.nextLine();
                         gv.setMonDay(tenMon);
+                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
                         break;
                     case 4:
                         System.out.print("Nhập chức vụ mới (bộ môn hay chủ nhiệm): ");
                         gv.setChucVu(sc.nextLine());
+                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
                         break;
                     case 0:
-                        System.out.print("Thoát sửa giáo viên!");
+                        System.out.print("Thoát sửa giáo viên!\n");
                         break;
                     default:
                         System.out.println("❌ Lựa chọn không hợp lệ!");
                 }
-                System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
                 }while(chon != 0);
                 return;
             }
@@ -93,9 +96,10 @@ class DanhSachGiaoVien implements IThaoTacFile {
 
     public void hienThiTatCa() {
         if (danhSach.isEmpty()) {
-            System.out.println("❌ Danh sách giáo viên trống!");
+            System.out.println("\n❌ Danh sách giáo viên trống!");
             return;
         }
+        System.out.println("");
         for (GiaoVien gv : danhSach)
             gv.hienThi();
     }
@@ -144,7 +148,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
                         gv.getChucVu()));
                 bw.newLine();
             }
-            System.out.println("✅ Ghi file GiaoVien.txt thành công!");
+            System.out.println("\n✅ Ghi file GiaoVien.txt thành công!");
         } catch (IOException e) {
             System.out.println("❌ Lỗi ghi file: " + e.getMessage());
         }

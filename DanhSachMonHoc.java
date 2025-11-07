@@ -11,6 +11,7 @@ public class DanhSachMonHoc implements IThaoTacFile {
 
     public void themMon(MonHoc mh) {
         danhSach.add(mh);
+        System.out.println("Đã thêm môn học mới!");
     }
 
     public void xoaMon(String maMon) {
@@ -19,7 +20,7 @@ public class DanhSachMonHoc implements IThaoTacFile {
             if (danhSach.get(i).getMaMon().equalsIgnoreCase(maMon)) {
                 danhSach.remove(i);
                 found = true;
-                System.out.println("Đã xóa môn học có mã: " + maMon);
+                System.out.println("\nĐã xóa môn học có mã: " + maMon);
                 break;
             }
         }
@@ -66,7 +67,7 @@ public class DanhSachMonHoc implements IThaoTacFile {
             System.out.println("Danh sách môn học trống!");
             return;
         }
-        System.out.println("\n=== DANH SÁCH MÔN HỌC ===");
+        System.out.println("=== DANH SÁCH MÔN HỌC ===");
         for (MonHoc mh : danhSach) {
             mh.hienThi();
         }
