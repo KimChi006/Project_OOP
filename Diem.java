@@ -39,7 +39,6 @@ public class Diem {
     public double getDiemThi() { return DiemThi; }
 
     public void nhap() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhập mã số học sinh: ");
         setmaHS(sc.nextLine());
 
@@ -104,4 +103,5 @@ public class Diem {
      
 }
 }
+
 
