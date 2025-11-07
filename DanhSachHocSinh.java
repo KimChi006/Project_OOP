@@ -37,7 +37,7 @@ public class DanhSachHocSinh {
                 break;
             default:
                 System.out.println("❌ Lựa chọn không hợp lệ!");
-                return;
+                continue;
         }
     }
         String maMoi = HocSinh.getMaHSTiepTheo();
@@ -141,6 +141,7 @@ public class DanhSachHocSinh {
     }
 
     public void xoaHocSinh() {
+        while(true){
         System.out.print("Nhập mã học sinh cần xóa: ");
         String maHS = sc.nextLine();
         HocSinh hs = timHocSinh(maHS);
@@ -148,11 +149,12 @@ public class DanhSachHocSinh {
         if (hs != null) {
             dshs.remove(hs);
             System.out.println("✅ Đã xóa học sinh có mã " + maHS);
+            break;
         } else {
             System.out.println("❌ Không tìm thấy học sinh.");
-        }
+           }
+       }
     }
-
     public void docTuFile(String tenFile) {
         try (BufferedReader input = new BufferedReader(new FileReader(tenFile))) {
             String line;
@@ -203,4 +205,5 @@ public class DanhSachHocSinh {
         }
     }
 }
+
 
