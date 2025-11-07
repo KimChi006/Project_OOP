@@ -10,8 +10,12 @@ class DanhSachGiaoVien implements IThaoTacFile {
     }
 
     public void themNHieuGiaoVien(){
-        System.out.print("Nhap so luong giao vien muon them vao:");
+        System.out.print("Nhập số lượng giáo viên muốn thêm vào (nhập 0 để thoát):");
         int SL = Integer.parseInt(sc.nextLine());
+        if(SL == 0){
+            System.out.println("→ Đã hủy thao tác thêm giáo viên.");
+            return; 
+        }
 
         for(int i = 0; i<SL; i++){
             GiaoVien gv = new GiaoVien();
@@ -117,6 +121,8 @@ class DanhSachGiaoVien implements IThaoTacFile {
                 // Tạo giáo viên
                 GiaoVien gv = new GiaoVien(maGV, hoTen, gioiTinh, namSinh, tenMon, chucVu);
                 danhSach.add(gv);
+
+                GiaoVien.capNhatMaLonNhat(maGV);
             }
         }
     } catch (IOException e) {

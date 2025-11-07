@@ -52,15 +52,19 @@ public class Main {
 
                         switch (chonhs) {
                             case 1:
+                                System.out.println("\n");
                                 dshs.themHocSinh();
                                 break;
                             case 2:
+                                System.out.println("\n");
                                 dshs.xoaHocSinh();
                                 break;
                             case 3:
+                                System.out.println("\n");
                                 dshs.suaHocSinh();
                                 break;
                             case 4:
+                                System.out.println("\n");
                                 System.out.print("Nhập mã học sinh cần tìm: ");
                                 String mahs = sc.nextLine();
                                 HocSinh hs = dshs.timHocSinh(mahs);
@@ -70,15 +74,19 @@ public class Main {
        								System.out.println("❌ Không tìm thấy học sinh có mã: " + mahs);
                                 break;
                             case 5:
+                                System.out.println("\n");
                                 dshs.hienThiDanhSach();
                                 break;
                             case 6:
+                                System.out.println("\n");
                                 dshs.ghiRaFile("D:\\Project_OOP\\HocSinh.txt");
                                 break;
                             case 0:
+                                System.out.println("\n");
                                 System.out.println("Thoát quản lý học sinh.");
                                 break;
                             default:
+                                System.out.println("\n");
                                 System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chonhs != 0);
@@ -101,28 +109,41 @@ public class Main {
 
                         switch (chongv) {
                             case 1:
+                                System.out.println("\n");
                                 dsgv.themNHieuGiaoVien();
                                 break;
                             case 2:
-                                System.out.print("Nhập mã giáo viên cần xóa: ");
+                                System.out.println("\n");
+                                while(true){
+                                System.out.print("Nhập mã giáo viên cần xóa (nhập 0 để thoát): ");
                                 String magv = sc.nextLine();
+                                if(magv.equals("0")){
+                                    System.out.println("→ Đã hủy thao tác xóa giáo viên.");
+                                    break;
+                                }
                                 dsgv.xoaGV(magv);
+                                }
                                 break;
                             case 3:
+                                System.out.println("\n");
                                 System.out.print("Nhập mã giáo viên cần sửa: ");
                                 String mgv = sc.nextLine();
                                 dsgv.suaGV(mgv);
                                 break;
                             case 4:
+                                System.out.println("\n");
                                 dsgv.hienThiTatCa();
                                 break;
                             case 5:
+                                System.out.println("\n");
                                 dsgv.ghiRaFile("D:\\Project_OOP\\GiaoVien.txt");
                                 break;
                             case 0:
+                                System.out.println("\n");
                                 System.out.println("Thoát quản lý giáo viên.");
                                 break;
                             default:
+                                System.out.println("\n");
                                 System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chongv != 0);
@@ -144,21 +165,27 @@ public class Main {
 
                         switch (chond) {
                             case 1:
+                                System.out.println("\n");
                                 dsd.tinhDiemTrungBinh();
                                 break;
                             case 2:
+                                System.out.println("\n");
                                 dsd.suaDiem();
                                 break;
                             case 3:
+                                System.out.println("\n");
                                 dsd.hienThiTatCa();
                                 break;
                             case 4:
+                                System.out.println("\n");
                                 dsd.ghiRaFile("D:\\Project_OOP\\Diem.txt");
                                 break;
                             case 0:
+                                System.out.println("\n");
                                 System.out.println("Thoát quản lý điểm.");
                                 break;
                             default:
+                                System.out.println("\n");
                                 System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chond != 0);
@@ -183,27 +210,34 @@ public class Main {
 
                         switch (chonmh) {
                             case 1:
+                                System.out.println("\n");
                                 mh.nhap();
                                 dsmh.themMon(mh);
                                 break;
                             case 2:
+                                System.out.println("\n");
                                 System.out.print("Nhập mã môn học cần xóa: ");
                                 String maMh = sc.nextLine();
                                 dsmh.xoaMon(maMh);
                                 break;
                             case 3:
+                                System.out.println("\n");
                                 dsmh.suaMonHoc();
                                 break;
                             case 4:
+                                System.out.println("\n");
                                 dsmh.hienThiTatCa();
                                 break;
                             case 5:
+                                System.out.println("\n");
                                 dsmh.ghiRaFile("D:\\Project_OOP\\Monhoc.txt");
                                 break;
                             case 0:
+                                System.out.println("\n");
                                 System.out.println("Thoát quản lý môn học.");
                                 break;
                             default:
+                                System.out.println("\n");
                                 System.out.println("❌ Lựa chọn không hợp lệ!");
                         }
                     } while (chonmh != 0);
@@ -213,9 +247,11 @@ public class Main {
                     dsl.menu();
                     break;
                 case 0:
+                    System.out.println("\n");
                     System.out.println("Thoát chương trình!");
                     break;
                 default:
+                    System.out.println("\n");
                     System.out.println("❌ Lựa chọn không hợp lệ!");
             }
         } while (chon != 0);
