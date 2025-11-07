@@ -64,7 +64,7 @@ public class DanhSachLop {
         System.out.println("\n=== DANH SÁCH LỚP HỌC ===");
         int i = 1;
         for (Lop lop : dsLop) {
-            System.out.println(i + ": " + lop);
+            System.out.println(i + ".");
             lop.xuat();
             i++;
         }
