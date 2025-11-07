@@ -31,40 +31,59 @@ class DanhSachDiem implements IThaoTacFile {
         return 0;
     }
 
-     double diemTB = tong / (dem * 4);
-    System.out.printf("✅ Điểm trung bình của học sinh %s môn %s là: %.2f\n", maHS, maMon, diemTB);
-    return diemTB;
-    }
+       double diemTB = tong / (dem * 4);
+       System.out.printf("✅ Điểm trung bình của học sinh %s môn %s là: %.2f\n", maHS, maMon, diemTB);
+       return diemTB;
+       }
 
-    public void suaDiem() {
-        System.out.print("Nhập mã học sinh cần sửa điểm: ");
-        String maHS = sc.nextLine();
+     public void suaDiem() {
+       System.out.print("Nhập mã học sinh cần sửa điểm: ");
+       String maHS = sc.nextLine().trim();
 
-        System.out.print("Nhập mã môn học: ");
-        String maMon = sc.nextLine();
+       System.out.print("Nhập mã môn học: ");
+       String maMon = sc.nextLine().trim();
 
-        System.out.println("Chọn loại điểm cần sửa:");
-        System.out.println("1. Điểm miệng");
-        System.out.println("2. Điểm 15 phút");
-        System.out.println("3. Điểm 1 tiết");
-        System.out.println("4. Điểm thi");
-        System.out.print("Lựa chọn: ");
-        int chon = Integer.parseInt(sc.nextLine());
+       while (true) {
+          System.out.println("\nChọn loại điểm cần sửa:");
+          System.out.println("1. Điểm miệng");
+          System.out.println("2. Điểm 15 phút");
+          System.out.println("3. Điểm 1 tiết");
+          System.out.println("4. Điểm thi");
+          System.out.println("0. Thoát sửa điểm");
+          System.out.print("Lựa chọn: ");
 
-       double diemMoi;
-        while(true){
-        System.out.print("Nhập điểm mới: ");
-        try {
-           diemMoi = sc.nextDouble();
-           if(diemMoi<=10 && diemMoi>=0)break;
-               else System.out.println("điểm mới cần nhập phải lớn hơn bằng 0 và nhỏ hơn hoặc bằng 10, vui lòng nhập lại!"); 
-        }catch(NumberFormatException e){
+        int chon;
+          try {
+              chon = Integer.parseInt(sc.nextLine());
+          } catch (NumberFormatException e) {
+              System.out.println("Lựa chọn không hợp lệ. Vui lòng nhập số từ 0 đến 4.");
+              continue;
+          }
 
-            }
+          if (chon == 0) {
+            System.out.println("Đã thoát khỏi chức năng sửa điểm.");
+            break;
         }
-        boolean daSua = false;
-        for (Diem d : dsd) {
-            if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
+
+          if (chon < 1 || chon > 4) {
+            System.out.println("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+            continue;
+        }
+
+          double diemMoi;
+          while (true) {
+            System.out.print("Nhập điểm mới (0 - 10): ");
+              try {
+                  diemMoi = Double.parseDouble(sc.nextLine());
+                   if (diemMoi >= 0 && diemMoi <= 10) break;
+                  else System.out.println("Điểm phải nằm trong khoảng từ 0 đến 10.");
+             } catch (NumberFormatException e) {
+                  System.out.println("Định dạng không hợp lệ. Vui lòng nhập số.");
+              }
+          }
+          boolean daSua = false;
+          for (Diem d : dsd) {
+              if (d.getmaHS().equals(maHS) && d.getmaMon().equals(maMon)) {
                 switch (chon) {
                     case 1:
                         d.setDiemMieng(diemMoi);
@@ -82,8 +101,11 @@ class DanhSachDiem implements IThaoTacFile {
                         d.setDiemThi(diemMoi);
                         daSua = true;
                         break;
+                    case 0:
+                        System.out.println("Thoát sửa điểm");
+                        return;
                     default:
-                        System.out.println("Lựa chọn không hợp lệ.");
+                        System.out.println("Lựa chọn không hợp lệ, vui lòng nhập lại!.");
                 }
             }
         }
@@ -93,7 +115,9 @@ class DanhSachDiem implements IThaoTacFile {
         } else {
             System.out.println("Không tìm thấy điểm cần sửa.");
         }
+   
     }
+  }
 
     public void hienThiTatCa() {
         for (Diem d : dsd) {
@@ -146,5 +170,6 @@ class DanhSachDiem implements IThaoTacFile {
         }
     }
 }
+
 
 
