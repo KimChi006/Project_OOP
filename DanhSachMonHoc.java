@@ -9,59 +9,120 @@ public class DanhSachMonHoc implements IThaoTacFile {
         this.sc = sc;
     }
 
-    public void themMon(MonHoc mh) {
-        danhSach.add(mh);
+    public void themMon(MonHoc mhnew) {
+         int out = -1;
+        Scanner sc = new Scanner(System.in);
+      boolean flag=false;
+        do{
+        for(MonHoc mh : danhSach){
+             while( mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon()) || mh.getTenMon().equalsIgnoreCase(mhnew.getTenMon())){
+                   System.out.println("Môn học đã tồn tại hãy nhập lại !");
+                   System.out.println("1. Tiếp tục");
+                   System.out.println("0.THoát");
+                   out = sc.nextInt();
+                sc.nextLine(); 
+                   if(out == 0) return;
+                    if (mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon())) {
+                    System.out.println("Nhập mã môn mới: ");
+                    mhnew.setMaMon(sc.nextLine());
+                }
+
+                if (mh.getTenMon().equalsIgnoreCase(mhnew.getTenMon())) {
+                    System.out.println("Nhập tên môn mới: ");
+                    mhnew.setTenMon(sc.nextLine());
+                }
+                  System.out.println("Nhập số tiết:");
+                  mhnew.setSoTiet(sc.nextInt());
+             }
+             flag=true;
+             break;
+        }
+    } while(!flag);
+        danhSach.add(mhnew);
         System.out.println("Đã thêm môn học mới!");
     }
 
-    public void xoaMon(String maMon) {
-        boolean found = false;
-        for (int i = 0; i < danhSach.size(); i++) {
-            if (danhSach.get(i).getMaMon().equalsIgnoreCase(maMon)) {
+ public void xoaMon(String maMon) {
+        int chon=-1;
+        boolean tontai=false;
+        boolean firts=false;
+       do{
+        if(firts){
+         System.out.print("Nhập mã môn muốn xóa: ");
+         maMon = sc.nextLine();
+        }
+         firts=true;
+         for (int i = 0; i < danhSach.size(); i++) {
+            if (danhSach.get(i).getMaMon().equalsIgnoreCase(maMon)){
+                tontai=true;
                 danhSach.remove(i);
-                found = true;
                 System.out.println("\nĐã xóa môn học có mã: " + maMon);
                 break;
+                }
             }
+        if(!tontai) {
+            System.out.println("Mã Môn Không Tồn Tại");
         }
-        if (!found) {
-            System.out.println("Không tìm thấy môn học có mã: " + maMon);
-        }
+         tontai=false;
+         System.out.println("1.Tiếp tục ");
+              System.out.println("0.Thoát");
+             chon = Integer.parseInt(sc.nextLine());
+    }while (chon != 0); 
     }
 
     public void suaMonHoc() {
-        System.out.print("Nhập mã môn muốn sửa: ");
+          System.out.print("Nhập mã môn muốn sửa: ");
         String ma = sc.nextLine();
-
+        int chon=-1;
+        boolean tontai=false;
+        boolean firts=false;
+       do{
+        if(firts){
+         System.out.print("Nhập mã môn muốn sửa: ");
+         ma = sc.nextLine();
+        }
+         firts=true;
         for (MonHoc mh : danhSach) {
             if (mh.getMaMon().equalsIgnoreCase(ma)) {
+                tontai=true;
                 System.out.println("1. Sửa mã môn");
                 System.out.println("2. Sửa tên môn");
                 System.out.println("3. Sửa số tiết");
+                System.out.println("0.Thoát");
                 System.out.print("→ Chọn: ");
-                int chon = Integer.parseInt(sc.nextLine());
-
+                 chon = Integer.parseInt(sc.nextLine());
                 switch (chon) {
                     case 1 -> {
                         System.out.print("Nhập mã môn mới: ");
                         mh.setMaMon(sc.nextLine());
+                         System.out.println("Đã cập nhật mã môn mới ");
                     }
                     case 2 -> {
                         System.out.print("Nhập tên môn mới: ");
                         mh.setTenMon(sc.nextLine());
+                        System.out.println("Đã cập nhật tên môn mới ");
                     }
                     case 3 -> {
                         System.out.print("Nhập số tiết mới: ");
                         mh.setSoTiet(Integer.parseInt(sc.nextLine()));
+                        System.out.println("Đã cập nhật số tiết mới ");
+                    }
+                    case 0 -> {
+                        return;
                     }
                     default -> System.out.println("Lựa chọn không hợp lệ!");
                 }
-                return;
             }
         }
-        System.out.println("Không tìm thấy mã môn này!");
+        if(!tontai) {
+            System.out.println("Mã Môn Không Tồn Tại");
+            tontai=false;
+        }
+         System.out.println("1.Tiếp tục ");
+              System.out.println("0.Thoát");
+             chon = Integer.parseInt(sc.nextLine());
+    }while (chon != 0); 
     }
-
     public void hienThiTatCa() {
         if (danhSach.isEmpty()) {
             System.out.println("Danh sách môn học trống!");
