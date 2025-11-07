@@ -191,12 +191,11 @@ public class DanhSachLop {
         int chon;
         do {
             System.out.println("\n========== QUẢN LÝ LỚP HỌC ==========");
-            System.out.println("1. Đọc danh sách lớp từ file");
-            System.out.println("2. Ghi danh sách lớp ra file");
-            System.out.println("3. Hiển thị danh sách lớp");
-            System.out.println("4. Thêm lớp");
-            System.out.println("5. Xóa lớp");
-            System.out.println("6. Sửa lớp");
+            System.out.println("1. Ghi danh sách lớp ra file");
+            System.out.println("2. Hiển thị danh sách lớp");
+            System.out.println("3. Thêm lớp");
+            System.out.println("4. Xóa lớp");
+            System.out.println("5. Sửa lớp");
             System.out.println("0. Thoát");
             System.out.print("→ Chọn: ");
             chon = sc.nextInt();
@@ -204,17 +203,12 @@ public class DanhSachLop {
 
             switch (chon) {
                 case 1 -> {
-                    System.out.print("Nhập tên file: ");
-                    String f = sc.nextLine();
-                    docTuFile(f);
-                }
-                case 2 -> {
                     ghiRaFile("D:\\Project_OOP\\LopHoc.txt");
                 }
-                case 3 -> hienThi();
-                case 4 -> themLop();
-                case 5 -> xoaLop();
-                case 6 -> suaLop();
+                case 2 -> hienThi();
+                case 3 -> themLop();
+                case 4 -> xoaLop();
+                case 5 -> suaLop();
                 case 0 -> System.out.println("Thoát chương trình...");
                 default -> System.out.println("⚠ Lựa chọn không hợp lệ!");
             }
