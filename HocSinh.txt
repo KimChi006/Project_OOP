@@ -1,4 +1,4 @@
-HS001,Nguyen Van My,Nữ,2006,10A2,TB,Noi tru,Khu C
+HS0001,Nguyen Van My,Nữ,2006,10A2,TB,Noi tru,Khu C
 HS002,Vuong Duy Phuong,Nữ,2008,10A4,Tốt,Noi tru,Khu C
 HS003,Ngo Thanh Trung,Nam,2007,11A2,TB,Noi tru,Khu B
 HS004,Ly Kim Phuong,Nữ,2007,10A5,TB,Ngoai tru,99 Tran Phu

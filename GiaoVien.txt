@@ -1,5 +1,5 @@
-GV001,Do Thi Dat,Nam,1982,Công nghệ,Chủ nhiệm
-GV002,Hoang Gia Dat,Nam,1986,Vật lý,Giáo viên bộ môn
+GV001,Nguyen Linh,Nu,1990,Tiếng Anh,Giáo viên bộ môn
+GV002,Nguyen Thanh,Nam,1986,Vật lý,Giáo viên bộ môn
 GV003,Ngo Thanh Dat,Nữ,1991,Địa lý,Giáo viên bộ môn
 GV004,Bui Anh Hoa,Nữ,1988,Công nghệ,Giáo viên bộ môn
 GV005,Pham Minh Tam,Nam,1979,QPAN,Chủ nhiệm

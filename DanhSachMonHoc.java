@@ -11,7 +11,6 @@ public class DanhSachMonHoc implements IThaoTacFile {
 
     public void themMon(MonHoc mhnew) {
          int out = -1;
-        Scanner sc = new Scanner(System.in);
       boolean flag=false;
         do{
         for(MonHoc mh : danhSach){

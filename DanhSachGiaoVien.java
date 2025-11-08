@@ -44,62 +44,79 @@ class DanhSachGiaoVien implements IThaoTacFile {
             System.out.println("❌ Không tìm thấy giáo viên có mã: " + maGV);
     }
 
-    public void suaGV(String maGV) {
-        int chon = -1;
-        for (GiaoVien gv : danhSach) {
-            while (gv.getMaGV().equalsIgnoreCase(maGV)) {
-                do{
-                System.out.println("\n===== Sửa thông tin giáo viên =====");
-                System.out.println("1. Sửa họ tên");
-                System.out.println("2. Sửa năm sinh");
-                System.out.println("3. Sửa môn dạy");
-                System.out.println("4. Sửa chức vụ ");
-                System.out.println("0.Thoat");
-                System.out.print("→ Chọn mục muốn sửa: ");
-                chon = sc.nextInt();
-                sc.nextLine(); // bỏ ký tự Enter
+    public void suaGV() {
+        while (true) {
+            System.out.print("Nhập mã giáo viên cần sửa (nhập 0 để thoát): ");
+            String maGV = sc.nextLine().trim();
 
-                switch (chon) {
-                    case 1:
-                        System.out.print("Nhập họ tên mới: ");
-                        gv.sethoTen(sc.nextLine());
-                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
-                        break;
-                    case 2:
-                        System.out.print("Nhập năm sinh mới: ");
-                        gv.setnamSinh(Integer.parseInt(sc.nextLine()));
-                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
-                        break;
-                    case 3:
-                        System.out.print("Nhập tên môn mới: ");
-                        String tenMon = sc.nextLine();
-                        gv.setMonDay(tenMon);
-                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
-                        break;
-                    case 4:
-                        System.out.print("Nhập chức vụ mới (bộ môn hay chủ nhiệm): ");
-                        gv.setChucVu(sc.nextLine());
-                        System.out.println("✅ Đã cập nhật thông tin cho giáo viên!");
-                        break;
-                    case 0:
-                        System.out.print("Thoát sửa giáo viên!\n");
-                        break;
-                    default:
-                        System.out.println("❌ Lựa chọn không hợp lệ!");
+            if (maGV.equals("0")) {
+                System.out.println("🔚 Thoát khỏi chức năng sửa giáo viên!");
+                break; // thoát khỏi vòng lặp while
+            }
+
+            boolean found = false; // đánh dấu đã tìm thấy hay chưa
+
+            for (GiaoVien gv : danhSach) {
+                if (gv.getMaGV().equalsIgnoreCase(maGV)) {
+                    found = true;
+
+                    int chon = -1;
+                    do {
+                        System.out.println("\n===== Sửa thông tin giáo viên =====");
+                        System.out.println("1. Sửa họ tên");
+                        System.out.println("2. Sửa năm sinh");
+                        System.out.println("3. Sửa môn dạy");
+                        System.out.println("4. Sửa chức vụ");
+                        System.out.println("0. Thoát");
+                        System.out.print("→ Chọn mục muốn sửa: ");
+                        chon = sc.nextInt();
+                        sc.nextLine(); // bỏ ký tự Enter
+
+                        switch (chon) {
+                            case 1:
+                                System.out.print("Nhập họ tên mới: ");
+                                gv.sethoTen(sc.nextLine());
+                                System.out.println("✅ Đã cập nhật họ tên!");
+                                break;
+                            case 2:
+                                System.out.print("Nhập năm sinh mới: ");
+                                gv.setnamSinh(Integer.parseInt(sc.nextLine()));
+                                System.out.println("✅ Đã cập nhật năm sinh!");
+                                break;
+                            case 3:
+                                System.out.print("Nhập tên môn mới: ");
+                                gv.setMonDay(sc.nextLine());
+                                System.out.println("✅ Đã cập nhật môn dạy!");
+                                break;
+                            case 4:
+                                System.out.print("Nhập chức vụ mới: ");
+                                gv.setChucVu(sc.nextLine());
+                                System.out.println("✅ Đã cập nhật chức vụ!");
+                                break;
+                            case 0:
+                                System.out.println("↩ Quay lại nhập mã giáo viên khác!");
+                                break;
+                            default:
+                                System.out.println("❌ Lựa chọn không hợp lệ!");
+                        }
+                    } while (chon != 0);
+
+                    break; // thoát for (đã tìm thấy rồi)
                 }
-                }while(chon != 0);
-                return;
+            }
+
+            if (!found) {
+                System.out.println("❌ Không tìm thấy giáo viên có mã " + maGV);
             }
         }
-        System.out.println("❌ Không tìm thấy giáo viên có mã " + maGV);
     }
+
 
     public void hienThiTatCa() {
         if (danhSach.isEmpty()) {
             System.out.println("\n❌ Danh sách giáo viên trống!");
             return;
         }
-        System.out.println("");
         for (GiaoVien gv : danhSach)
             gv.hienThi();
     }
@@ -131,8 +148,8 @@ class DanhSachGiaoVien implements IThaoTacFile {
         }
     } catch (IOException e) {
         System.out.println("Lỗi đọc file: " + e.getMessage());
+        }
     }
-}
 
 
     @Override

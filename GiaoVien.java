@@ -28,7 +28,6 @@ class GiaoVien extends Nguoi {
     // 🟢 Cập nhật mã lớn nhất sau khi đọc file
     // --------------------------
     public static void capNhatMaLonNhat(String maHienCo) {
-        // maHienCo dạng "GV005" → tách lấy số
         int so = Integer.parseInt(maHienCo.substring(2));
         if (so >= magvtieptheo)
             magvtieptheo = so + 1; // tăng để không bị trùng
