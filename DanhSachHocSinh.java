@@ -147,22 +147,25 @@ public class DanhSachHocSinh {
         } while (luaChon != 0);
     }
 
-    public void xoaHocSinh() {
-        while (true) {
-        System.out.print("Nhập mã học sinh cần xóa: ");
-        String maHS = sc.nextLine();
+public void xoaHocSinh() {
+    while (true) {
+        System.out.print("Nhập mã học sinh cần xóa (hoặc nhập 0 để hủy): ");
+        String maHS = sc.nextLine().trim();
+        if (maHS.equals("0")) {
+            System.out.println("Đã hủy thao tác xóa học sinh.");
+            break;
+        }
         HocSinh hs = timHocSinh(maHS);
-
         if (hs != null) {
             dshs.remove(hs);
-            System.out.println("✅ Đã xóa học sinh có mã " + maHS);
+            System.out.println(" Đã xóa học sinh có mã " + maHS);
             break;
         } else {
-            System.out.println("❌ Không tìm thấy học sinh, vui lòng nhập lại!.");
+            System.out.println(" Không tìm thấy học sinh, vui lòng nhập lại!");
         }
     }
 }
-
+    
     public void docTuFile(String tenFile) {
         try (BufferedReader input = new BufferedReader(new FileReader(tenFile))) {
             String line;
@@ -213,3 +216,4 @@ public class DanhSachHocSinh {
         }
     }
 }
+
