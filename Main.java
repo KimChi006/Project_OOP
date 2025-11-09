@@ -14,7 +14,7 @@ public class Main {
 		dsgv.docTuFile("D:\\Project_OOP\\GiaoVien.txt");
 		dsmh.docTuFile("D:\\Project_OOP\\MonHoc.txt");
 		dsd.docTuFile("D:\\Project_OOP\\Diem.txt");
-		dsl.docTuFile("D:\\Project_OOP\\LopHoc.txt");
+		dsl.docTuFile();
 
 
         int chon = -1;
@@ -255,3 +255,4 @@ public class Main {
         } while (chon != 0);
     }
 }
+
