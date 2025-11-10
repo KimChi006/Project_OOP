@@ -75,15 +75,16 @@ public class DanhSachHocSinh implements IThaoTacFile{
         return null;
     }
 
-    public void suaHocSinh() {
-        System.out.print("Nhập mã học sinh cần sửa: ");
-        String maHS = sc.nextLine();
-        HocSinh hs = timHocSinh(maHS);
-
-        if (hs == null) {
-            System.out.println("❌ Không tìm thấy học sinh.");
-            return;
-        }
+     public void suaHocSinh() {
+      HocSinh hs;
+      do {
+          System.out.print("Nhập mã học sinh cần sửa: ");
+          String maHS = sc.nextLine();
+          hs = timHocSinh(maHS);
+          if (hs == null) {
+          System.out.println("❌ Không tìm thấy học sinh, vui lòng nhập lại.");
+           }
+          } while (hs == null);
 
         int luaChon;
         do {
@@ -104,38 +105,47 @@ public class DanhSachHocSinh implements IThaoTacFile{
                 case 1:
                     System.out.print("Nhập mã mới: ");
                     hs.setmaHS(sc.nextLine());
+                    System.out.println("đã sửa mã học sinh");
                     break;
                 case 2:
                     System.out.print("Nhập họ tên mới: ");
                     hs.sethoTen(sc.nextLine());
+                    System.out.println("đã sửa tên học sinh");
                     break;
                 case 3:
                     System.out.print("Nhập giới tính mới: ");
                     hs.setgioiTinh(sc.nextLine());
+                    System.out.println("đã sửa  giới tính học sinh");
                     break;
                 case 4:
                     System.out.print("Nhập năm sinh mới: ");
                     hs.setnamSinh(Integer.parseInt(sc.nextLine()));
+                    System.out.println("đã sửa năm sinh học sinh");
                     break;
                 case 5:
                     System.out.print("Nhập mã lớp mới: ");
                     hs.setmaLop(sc.nextLine());
+                    System.out.println("đã sửa mã lớp học sinh");
                     break;
                 case 6:
                     System.out.print("Nhập hạnh kiểm mới: ");
                     hs.sethanhKiem(sc.nextLine());
+                    System.out.println("đã sửa hạnh kiểm học sinh");
                     break;
                 case 7:
                     System.out.print("Nhập loại học sinh mới (nội trú hoặc ngoại trú): ");
                     hs.setloaihocsinh(sc.nextLine());
+                    System.out.println("đã sửa loại học sinh");
                     break;
                 case 8:
                     if (hs instanceof NoiTru) {
                         System.out.print("Nhập khu nội trú mới: ");
                         ((NoiTru) hs).setKhuNoiTru(sc.nextLine());
+                        System.out.println("đã cập nhật khu nội trú");
                     } else if (hs instanceof NgoaiTru) {
                         System.out.print("Nhập địa chỉ mới: ");
                         ((NgoaiTru) hs).setDiaChiNha(sc.nextLine());
+                        System.out.println("đã cập nhật địa chỉ");
                     }
                     break;
                 case 0:
@@ -146,7 +156,6 @@ public class DanhSachHocSinh implements IThaoTacFile{
             }
         } while (luaChon != 0);
     }
-
 public void xoaHocSinh() {
     while (true) {
         System.out.print("Nhập mã học sinh cần xóa (hoặc nhập 0 để hủy): ");
@@ -216,4 +225,5 @@ public void xoaHocSinh() {
         }
     }
 }
+
 
