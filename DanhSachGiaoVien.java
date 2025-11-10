@@ -146,6 +146,7 @@ class DanhSachGiaoVien implements IThaoTacFile {
                 GiaoVien.capNhatMaLonNhat(maGV);
             }
         }
+        System.out.println("✅ Đọc file thành công: GiaoVien.txt!");
     } catch (IOException e) {
         System.out.println("Lỗi đọc file: " + e.getMessage());
         }

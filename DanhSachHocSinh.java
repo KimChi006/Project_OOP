@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class DanhSachHocSinh {
+public class DanhSachHocSinh implements IThaoTacFile{
     private ArrayList<HocSinh> dshs = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
 

@@ -10,29 +10,18 @@ public class DanhSachMonHoc implements IThaoTacFile {
     }
 
     public void themMon(MonHoc mhnew) {
-boolean daTrungLap;    
-    do {
-        daTrungLap = false; 
-        for (MonHoc mh : danhSach) {
-            
-            if (mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon()) || mh.getTenMon().equalsIgnoreCase(mhnew.getTenMon())) {
-                
-                System.out.println("⚠️ Môn học đã tồn tại! Vui lòng nhập lại thông tin:");
-                daTrungLap = true; 
-                int out;         
-               
-                do {
-                    System.out.println("1. Tiếp tục nhập lại");
-                    System.out.println("0. Hủy thêm môn");
-                    out = Integer.parseInt(sc.nextLine()); 
-                    
-                    if (out == 0) return; 
-                    
-                    if (out != 1) {
-                         System.out.println("❌ Lựa chọn không hợp lệ. Vui lòng chọn 1 hoặc 0.");
-                    }
-                } while (out != 1);
-                 if (mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon())) {
+         int out = -1;
+      boolean flag=false;
+        do{
+        for(MonHoc mh : danhSach){
+             while( mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon()) || mh.getTenMon().equalsIgnoreCase(mhnew.getTenMon())){
+                   System.out.println("Môn học đã tồn tại hãy nhập lại !");
+                   System.out.println("1. Tiếp tục");
+                   System.out.println("0.THoát");
+                   out = sc.nextInt();
+                sc.nextLine(); 
+                   if(out == 0) return;
+                    if (mh.getMaMon().equalsIgnoreCase(mhnew.getMaMon())) {
                     System.out.println("Nhập mã môn mới: ");
                     mhnew.setMaMon(sc.nextLine());
                 }
@@ -42,14 +31,15 @@ boolean daTrungLap;
                     mhnew.setTenMon(sc.nextLine());
                 }
                   System.out.println("Nhập số tiết:");
-                 mhnew.setSoTiet(Integer.parseInt(sc.nextLine()));
-                break; 
-            }
+                  mhnew.setSoTiet(sc.nextInt());
+             }
+             flag=true;
+             break;
         }
-    } while (daTrungLap);
-    danhSach.add(mhnew);
-    System.out.println("✅ Đã thêm môn học mới!");
-}
+    } while(!flag);
+        danhSach.add(mhnew);
+        System.out.println("Đã thêm môn học mới!");
+    }
 
  public void xoaMon(String maMon) {
         int chon=-1;
@@ -177,4 +167,3 @@ boolean daTrungLap;
         }
     }
 }
-

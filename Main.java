@@ -14,7 +14,7 @@ public class Main {
 		dsgv.docTuFile("D:\\Project_OOP\\GiaoVien.txt");
 		dsmh.docTuFile("D:\\Project_OOP\\MonHoc.txt");
 		dsd.docTuFile("D:\\Project_OOP\\Diem.txt");
-		dsl.docTuFile();
+		dsl.docTuFile("D:\\Project_OOP\\LopHoc.txt");
 
 
         int chon = -1;

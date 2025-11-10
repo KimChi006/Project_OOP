@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DanhSachLop {
+public class DanhSachLop implements IThaoTacFile{
     ArrayList<Lop> dsLop = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
     //private String tenFile="LopHoc.txt";
@@ -12,8 +12,7 @@ public class DanhSachLop {
     }
 
     // --- Đọc danh sách lớp từ file ---
-    public void docTuFile() {
-        String tenFile = "LopHoc.txt"; // Tự động dùng file LopHoc.txt
+    public void docTuFile(String tenFile) {
 
         try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
             dsLop.clear(); // Xóa danh sách cũ
@@ -45,13 +44,11 @@ public class DanhSachLop {
     }
 
     // --- Ghi danh sách lớp ra file ---
-    public void ghiRaFile() {
+    public void ghiRaFile(String tenFile) {
         if (dsLop.isEmpty()) {
             System.out.println("⚠️ Danh sách lớp trống, không có gì để ghi!");
             return;
         }
-
-        String tenFile = "LopHoc.txt"; // chỉ tên file, không có đường dẫn
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(tenFile))) {
             for (Lop lop : dsLop) {
@@ -172,7 +169,7 @@ public class DanhSachLop {
                     if (confirm.equalsIgnoreCase("có")) {
                         dsLop.remove(i);
                         System.out.println("✅ Đã xóa lớp có mã: " + ma);
-                        ghiRaFile(); // Tự động lưu thay đổi vào file
+                        ghiRaFile("LopHoc.txt"); // Tự động lưu thay đổi vào file
                     } else {
                         System.out.println("❎ Hủy thao tác xóa.");
                     }
@@ -266,7 +263,7 @@ public class DanhSachLop {
             sc.nextLine();
 
             switch (chon) {
-                case 1 -> ghiRaFile();
+                case 1 -> ghiRaFile("LopHoc.txt");
                 case 2 -> hienThi();
                 case 3 -> themLop();
                 case 4 -> xoaLop();
@@ -277,11 +274,4 @@ public class DanhSachLop {
         } while (chon != 0);
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        DanhSachLop ds= new DanhSachLop(sc);
-        ds.docTuFile();
-        ds.ghiRaFile();
-        ds.menu();
-    }
 }
