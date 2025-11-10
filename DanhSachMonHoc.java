@@ -8,7 +8,7 @@ public class DanhSachMonHoc implements IThaoTacFile {
     public DanhSachMonHoc(Scanner sc) {
         this.sc = sc;
     }
-}
+
 public void themMon(MonHoc mhnew){
         boolean daTrungLap;    
     do {
@@ -174,4 +174,5 @@ public void themMon(MonHoc mhnew){
         }
     }
 }
+
 
